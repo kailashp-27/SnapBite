@@ -1,0 +1,101 @@
+{
+  "dataset": "SohlHealth/sohl-multidish-yolo-dataset",
+  "datasetRevision": "ef83f6636e5d9e0593aeaecae49ef05ef418693a",
+  "modelSha256": "6e7a5cd6e76faafaef16905a2a0baa4a2bb066017af5383d85d1250c06323f5e",
+  "originalImages": 127,
+  "duplicateImagesRemoved": 0,
+  "classes": [
+    "flatbread",
+    "curry",
+    "rice",
+    "other",
+    "background"
+  ],
+  "validation": {
+    "regions": 87,
+    "accuracy": 0.632183908045977,
+    "balancedAccuracy": 0.7122507122507121,
+    "confusion": [
+      [
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        2,
+        8,
+        0,
+        2,
+        0
+      ],
+      [
+        0,
+        0,
+        6,
+        0,
+        0
+      ],
+      [
+        1,
+        10,
+        3,
+        19,
+        6
+      ],
+      [
+        1,
+        3,
+        3,
+        0,
+        20
+      ]
+    ]
+  },
+  "test": {
+    "regions": 175,
+    "accuracy": 0.5885714285714285,
+    "balancedAccuracy": 0.6691530220335558,
+    "confusion": [
+      [
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        9,
+        4,
+        1,
+        2
+      ],
+      [
+        1,
+        3,
+        4,
+        0,
+        0
+      ],
+      [
+        7,
+        20,
+        21,
+        44,
+        5
+      ],
+      [
+        1,
+        4,
+        0,
+        2,
+        44
+      ]
+    ]
+  },
+  "fitRegions": 468,
+  "bestEpoch": 52,
+  "limits": "Ground-truth box crop classification only. Not an end-to-end detector, count-accuracy test, or portion-weight validation. The source annotations group flatbreads and do not label individual chapati counts or food weights."
+}

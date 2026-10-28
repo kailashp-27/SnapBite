@@ -1,0 +1,284 @@
+{
+  "source": "AlexKoff88/mobilenet_v2_food101",
+  "revision": "7d05d3878ee7f2aad7ad159018a8e5fdb4953d41",
+  "sha256": "af237923fd4636f5c6156059e372871a2b63e4a851f377f1b92ae8c71d018890",
+  "reason": "Upstream ONNX image features were nearly zero; do not use for inference.",
+  "observed": {
+    "overall": {
+      "images": 1381,
+      "top1": 0.0782041998551774,
+      "top3": 0.14844315713251266,
+      "medianMs": 13.644100006786175,
+      "p95Ms": 19.550800003344193
+    },
+    "indian": {
+      "images": 961,
+      "top1": 0.11238293444328824,
+      "top3": 0.2133194588969823,
+      "medianMs": 11.905800012755208,
+      "p95Ms": 16.600600007222965
+    },
+    "global": {
+      "images": 420,
+      "top1": 0,
+      "top3": 0,
+      "medianMs": 16.797600001154933,
+      "p95Ms": 20.504039988736622
+    },
+    "perClass": {
+      "apple_pie": {
+        "images": 20,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 18.3724000089569,
+        "p95Ms": 20.875994995731162
+      },
+      "beef_carpaccio": {
+        "images": 20,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 14.291749997937586,
+        "p95Ms": 19.74536998968688
+      },
+      "beef_tartare": {
+        "images": 20,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 17.071399997803383,
+        "p95Ms": 20.409059987287037
+      },
+      "beignets": {
+        "images": 20,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 18.7161499998183,
+        "p95Ms": 20.68087999650743
+      },
+      "biryani": {
+        "images": 46,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 13.755899999523535,
+        "p95Ms": 16.68137500018929
+      },
+      "carrot_cake": {
+        "images": 20,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 17.66160000261152,
+        "p95Ms": 19.52405500196619
+      },
+      "chicken_quesadilla": {
+        "images": 20,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 14.9061000047368,
+        "p95Ms": 19.82924000840285
+      },
+      "chicken_wings": {
+        "images": 20,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 17.626549997658003,
+        "p95Ms": 21.342935008578934
+      },
+      "chocolate_mousse": {
+        "images": 20,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 19.008599992957897,
+        "p95Ms": 20.73605000259704
+      },
+      "cholebhature": {
+        "images": 66,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 14.732949995959643,
+        "p95Ms": 16.815574996144278
+      },
+      "churros": {
+        "images": 20,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 15.524249996815342,
+        "p95Ms": 19.591234991094097
+      },
+      "dabeli": {
+        "images": 44,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 14.026499993633479,
+        "p95Ms": 16.77360999965458
+      },
+      "dal": {
+        "images": 53,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 12.771699999575503,
+        "p95Ms": 16.85703999537509
+      },
+      "dhokla": {
+        "images": 50,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 14.325900003314018,
+        "p95Ms": 16.806530001485953
+      },
+      "dosa": {
+        "images": 34,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 14.303199997812044,
+        "p95Ms": 17.085114999645153
+      },
+      "filet_mignon": {
+        "images": 20,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 15.468599995074328,
+        "p95Ms": 18.363389997102786
+      },
+      "frozen_yogurt": {
+        "images": 20,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 18.276050002896227,
+        "p95Ms": 20.389115007856162
+      },
+      "gyoza": {
+        "images": 20,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 15.484000003198162,
+        "p95Ms": 19.05702000585734
+      },
+      "ice_cream": {
+        "images": 20,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 18.04804999846965,
+        "p95Ms": 20.606570004019886
+      },
+      "jalebi": {
+        "images": 62,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 6.853750011941884,
+        "p95Ms": 12.931840002420357
+      },
+      "kathiroll": {
+        "images": 68,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 7.331250002607703,
+        "p95Ms": 10.558524998486973
+      },
+      "kofta": {
+        "images": 134,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 6.925599998794496,
+        "p95Ms": 9.061814997403417
+      },
+      "lobster_roll_sandwich": {
+        "images": 20,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 15.996249996533152,
+        "p95Ms": 19.380034996720497
+      },
+      "naan": {
+        "images": 71,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 7.794799996190704,
+        "p95Ms": 10.961450003378559
+      },
+      "onion_rings": {
+        "images": 20,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 13.707299993257038,
+        "p95Ms": 19.51184499557712
+      },
+      "pakora": {
+        "images": 76,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 13.718250003876165,
+        "p95Ms": 16.56024999829242
+      },
+      "paneer": {
+        "images": 52,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 14.130149997072294,
+        "p95Ms": 16.605305002303794
+      },
+      "panipuri": {
+        "images": 36,
+        "top1": 0,
+        "top3": 1,
+        "medianMs": 15.106400001968723,
+        "p95Ms": 16.429699993750546
+      },
+      "pavbhaji": {
+        "images": 61,
+        "top1": 0,
+        "top3": 1,
+        "medianMs": 13.493600010406226,
+        "p95Ms": 16.70050001121126
+      },
+      "peking_duck": {
+        "images": 20,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 14.401499996893108,
+        "p95Ms": 19.095290002587717
+      },
+      "pizza": {
+        "images": 20,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 18.393250000372063,
+        "p95Ms": 20.921464999264572
+      },
+      "scallops": {
+        "images": 20,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 16.87639999727253,
+        "p95Ms": 20.156470000074478
+      },
+      "spaghetti_bolognese": {
+        "images": 20,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 17.213099999935366,
+        "p95Ms": 19.983174988010433
+      },
+      "sushi": {
+        "images": 20,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 15.275849997124169,
+        "p95Ms": 19.498484990617726
+      },
+      "tiramisu": {
+        "images": 20,
+        "top1": 0,
+        "top3": 0,
+        "medianMs": 14.77945000078762,
+        "p95Ms": 19.189359991287347
+      },
+      "vadapav": {
+        "images": 108,
+        "top1": 1,
+        "top3": 1,
+        "medianMs": 14.60015000338899,
+        "p95Ms": 16.518240002187667
+      }
+    }
+  },
+  "featureMeanStandardDeviation": 4.2107642e-10
+}

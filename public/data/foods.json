@@ -1,0 +1,730 @@
+[
+  {
+    "id": "idli",
+    "name": "Idli",
+    "category": "Indian",
+    "serving": "2 pieces",
+    "grams": 100,
+    "calories": 146,
+    "protein": 4.5,
+    "carbs": 29,
+    "fat": 0.7,
+    "emoji": "🍚",
+    "aliases": [
+      "steamed rice cake"
+    ],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "dosa",
+    "name": "Masala dosa",
+    "category": "Indian",
+    "serving": "1 dosa",
+    "grams": 180,
+    "calories": 320,
+    "protein": 7,
+    "carbs": 48,
+    "fat": 11,
+    "emoji": "🥞",
+    "aliases": [
+      "dosai"
+    ],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "poha",
+    "name": "Vegetable poha",
+    "category": "Indian",
+    "serving": "1 bowl",
+    "grams": 180,
+    "calories": 250,
+    "protein": 5,
+    "carbs": 45,
+    "fat": 6,
+    "emoji": "🥣",
+    "aliases": [
+      "flattened rice"
+    ],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "upma",
+    "name": "Vegetable upma",
+    "category": "Indian",
+    "serving": "1 bowl",
+    "grams": 200,
+    "calories": 260,
+    "protein": 7,
+    "carbs": 42,
+    "fat": 7,
+    "emoji": "🥣",
+    "aliases": [],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "parotta",
+    "name": "Kerala parotta",
+    "category": "Indian",
+    "serving": "1 piece",
+    "grams": 80,
+    "calories": 260,
+    "protein": 5,
+    "carbs": 38,
+    "fat": 10,
+    "emoji": "🫓",
+    "aliases": [
+      "paratha"
+    ],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "roti",
+    "name": "Whole wheat roti",
+    "category": "Indian",
+    "serving": "1 roti",
+    "grams": 40,
+    "calories": 110,
+    "protein": 3,
+    "carbs": 22,
+    "fat": 1,
+    "emoji": "🫓",
+    "aliases": [
+      "chapati",
+      "chapatti"
+    ],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "chicken-biryani",
+    "name": "Chicken biryani",
+    "category": "Indian",
+    "serving": "1 plate",
+    "grams": 300,
+    "calories": 540,
+    "protein": 27,
+    "carbs": 68,
+    "fat": 18,
+    "emoji": "🍛",
+    "aliases": [
+      "biryani",
+      "biriyani"
+    ],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "veg-biryani",
+    "name": "Vegetable biryani",
+    "category": "Indian",
+    "serving": "1 plate",
+    "grams": 300,
+    "calories": 420,
+    "protein": 9,
+    "carbs": 72,
+    "fat": 11,
+    "emoji": "🍛",
+    "aliases": [
+      "biryani",
+      "pulao"
+    ],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "dal",
+    "name": "Dal tadka",
+    "category": "Indian",
+    "serving": "1 bowl",
+    "grams": 200,
+    "calories": 230,
+    "protein": 12,
+    "carbs": 30,
+    "fat": 7,
+    "emoji": "🍲",
+    "aliases": [
+      "lentil curry"
+    ],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "sambar",
+    "name": "Sambar",
+    "category": "Indian",
+    "serving": "1 bowl",
+    "grams": 200,
+    "calories": 140,
+    "protein": 6,
+    "carbs": 22,
+    "fat": 3,
+    "emoji": "🍲",
+    "aliases": [],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "paneer",
+    "name": "Paneer butter masala",
+    "category": "Indian",
+    "serving": "1 bowl",
+    "grams": 200,
+    "calories": 390,
+    "protein": 16,
+    "carbs": 16,
+    "fat": 29,
+    "emoji": "🍛",
+    "aliases": [
+      "paneer curry"
+    ],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "chicken-curry",
+    "name": "Chicken curry",
+    "category": "Indian",
+    "serving": "1 bowl",
+    "grams": 200,
+    "calories": 290,
+    "protein": 28,
+    "carbs": 10,
+    "fat": 15,
+    "emoji": "🍛",
+    "aliases": [],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "chana",
+    "name": "Chana masala",
+    "category": "Indian",
+    "serving": "1 bowl",
+    "grams": 200,
+    "calories": 280,
+    "protein": 12,
+    "carbs": 40,
+    "fat": 8,
+    "emoji": "🍲",
+    "aliases": [
+      "chole",
+      "chickpea curry"
+    ],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "rajma",
+    "name": "Rajma",
+    "category": "Indian",
+    "serving": "1 bowl",
+    "grams": 200,
+    "calories": 240,
+    "protein": 13,
+    "carbs": 37,
+    "fat": 5,
+    "emoji": "🍲",
+    "aliases": [
+      "kidney beans"
+    ],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "rice",
+    "name": "Steamed rice",
+    "category": "Grains",
+    "serving": "1 bowl",
+    "grams": 150,
+    "calories": 195,
+    "protein": 4,
+    "carbs": 42,
+    "fat": 0.5,
+    "emoji": "🍚",
+    "aliases": [
+      "white rice"
+    ],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "curd",
+    "name": "Plain curd",
+    "category": "Dairy",
+    "serving": "1 cup",
+    "grams": 150,
+    "calories": 92,
+    "protein": 5,
+    "carbs": 7,
+    "fat": 5,
+    "emoji": "🥛",
+    "aliases": [
+      "yogurt",
+      "dahi"
+    ],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "samosa",
+    "name": "Vegetable samosa",
+    "category": "Indian",
+    "serving": "1 piece",
+    "grams": 80,
+    "calories": 240,
+    "protein": 4,
+    "carbs": 28,
+    "fat": 12,
+    "emoji": "🥟",
+    "aliases": [],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "vada",
+    "name": "Medu vada",
+    "category": "Indian",
+    "serving": "1 piece",
+    "grams": 60,
+    "calories": 170,
+    "protein": 5,
+    "carbs": 18,
+    "fat": 9,
+    "emoji": "🥯",
+    "aliases": [
+      "vadai"
+    ],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "pav-bhaji",
+    "name": "Pav bhaji",
+    "category": "Indian",
+    "serving": "1 plate",
+    "grams": 250,
+    "calories": 430,
+    "protein": 10,
+    "carbs": 60,
+    "fat": 17,
+    "emoji": "🍛",
+    "aliases": [],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "chai",
+    "name": "Masala chai",
+    "category": "Drinks",
+    "serving": "1 cup",
+    "grams": 150,
+    "calories": 90,
+    "protein": 3,
+    "carbs": 12,
+    "fat": 3,
+    "emoji": "☕",
+    "aliases": [
+      "tea"
+    ],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "filter-coffee",
+    "name": "Filter coffee",
+    "category": "Drinks",
+    "serving": "1 cup",
+    "grams": 150,
+    "calories": 80,
+    "protein": 3,
+    "carbs": 10,
+    "fat": 3,
+    "emoji": "☕",
+    "aliases": [],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "oats",
+    "name": "Oatmeal with berries",
+    "category": "Breakfast",
+    "serving": "1 bowl",
+    "grams": 250,
+    "calories": 280,
+    "protein": 10,
+    "carbs": 46,
+    "fat": 6,
+    "emoji": "🥣",
+    "aliases": [
+      "oats",
+      "porridge"
+    ],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "avocado-toast",
+    "name": "Avocado toast",
+    "category": "Breakfast",
+    "serving": "1 slice",
+    "grams": 120,
+    "calories": 240,
+    "protein": 6,
+    "carbs": 25,
+    "fat": 14,
+    "emoji": "🥑",
+    "aliases": [],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "egg",
+    "name": "Boiled egg",
+    "category": "Protein",
+    "serving": "1 egg",
+    "grams": 50,
+    "calories": 78,
+    "protein": 6,
+    "carbs": 0.6,
+    "fat": 5,
+    "emoji": "🥚",
+    "aliases": [
+      "eggs"
+    ],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "omelette",
+    "name": "Two-egg omelette",
+    "category": "Breakfast",
+    "serving": "1 omelette",
+    "grams": 120,
+    "calories": 210,
+    "protein": 14,
+    "carbs": 2,
+    "fat": 16,
+    "emoji": "🍳",
+    "aliases": [
+      "omelet"
+    ],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "banana",
+    "name": "Banana",
+    "category": "Fruit",
+    "serving": "1 medium",
+    "grams": 118,
+    "calories": 105,
+    "protein": 1.3,
+    "carbs": 27,
+    "fat": 0.4,
+    "emoji": "🍌",
+    "aliases": [],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "apple",
+    "name": "Apple",
+    "category": "Fruit",
+    "serving": "1 medium",
+    "grams": 182,
+    "calories": 95,
+    "protein": 0.5,
+    "carbs": 25,
+    "fat": 0.3,
+    "emoji": "🍎",
+    "aliases": [],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "orange",
+    "name": "Orange",
+    "category": "Fruit",
+    "serving": "1 medium",
+    "grams": 130,
+    "calories": 62,
+    "protein": 1.2,
+    "carbs": 15,
+    "fat": 0.2,
+    "emoji": "🍊",
+    "aliases": [],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "mango",
+    "name": "Mango",
+    "category": "Fruit",
+    "serving": "1 cup",
+    "grams": 165,
+    "calories": 99,
+    "protein": 1.4,
+    "carbs": 25,
+    "fat": 0.6,
+    "emoji": "🥭",
+    "aliases": [],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "chicken",
+    "name": "Grilled chicken breast",
+    "category": "Protein",
+    "serving": "1 portion",
+    "grams": 150,
+    "calories": 248,
+    "protein": 46,
+    "carbs": 0,
+    "fat": 5.4,
+    "emoji": "🍗",
+    "aliases": [
+      "grilled chicken"
+    ],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "salmon",
+    "name": "Grilled salmon",
+    "category": "Protein",
+    "serving": "1 fillet",
+    "grams": 150,
+    "calories": 309,
+    "protein": 33,
+    "carbs": 0,
+    "fat": 18,
+    "emoji": "🐟",
+    "aliases": [
+      "fish"
+    ],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "tofu",
+    "name": "Firm tofu",
+    "category": "Protein",
+    "serving": "1 portion",
+    "grams": 150,
+    "calories": 216,
+    "protein": 26,
+    "carbs": 4,
+    "fat": 13,
+    "emoji": "🧊",
+    "aliases": [],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "salad",
+    "name": "Garden salad",
+    "category": "Vegetables",
+    "serving": "1 bowl",
+    "grams": 200,
+    "calories": 90,
+    "protein": 3,
+    "carbs": 14,
+    "fat": 3,
+    "emoji": "🥗",
+    "aliases": [
+      "vegetable salad"
+    ],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "buddha-bowl",
+    "name": "Quinoa & chickpea bowl",
+    "category": "Vegetables",
+    "serving": "1 bowl",
+    "grams": 300,
+    "calories": 420,
+    "protein": 16,
+    "carbs": 58,
+    "fat": 14,
+    "emoji": "🥗",
+    "aliases": [
+      "buddha bowl"
+    ],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "broccoli",
+    "name": "Steamed broccoli",
+    "category": "Vegetables",
+    "serving": "1 cup",
+    "grams": 150,
+    "calories": 53,
+    "protein": 4,
+    "carbs": 11,
+    "fat": 0.6,
+    "emoji": "🥦",
+    "aliases": [],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "sweet-potato",
+    "name": "Baked sweet potato",
+    "category": "Vegetables",
+    "serving": "1 medium",
+    "grams": 150,
+    "calories": 135,
+    "protein": 3,
+    "carbs": 31,
+    "fat": 0.2,
+    "emoji": "🍠",
+    "aliases": [],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "yogurt",
+    "name": "Greek yogurt",
+    "category": "Dairy",
+    "serving": "1 cup",
+    "grams": 170,
+    "calories": 100,
+    "protein": 17,
+    "carbs": 6,
+    "fat": 0.7,
+    "emoji": "🥛",
+    "aliases": [],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "milk",
+    "name": "Whole milk",
+    "category": "Dairy",
+    "serving": "1 glass",
+    "grams": 250,
+    "calories": 153,
+    "protein": 8,
+    "carbs": 12,
+    "fat": 8,
+    "emoji": "🥛",
+    "aliases": [],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "almonds",
+    "name": "Almonds",
+    "category": "Snacks",
+    "serving": "1 handful",
+    "grams": 28,
+    "calories": 164,
+    "protein": 6,
+    "carbs": 6,
+    "fat": 14,
+    "emoji": "🥜",
+    "aliases": [
+      "nuts"
+    ],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "peanuts",
+    "name": "Roasted peanuts",
+    "category": "Snacks",
+    "serving": "1 handful",
+    "grams": 28,
+    "calories": 166,
+    "protein": 7,
+    "carbs": 6,
+    "fat": 14,
+    "emoji": "🥜",
+    "aliases": [],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "protein-shake",
+    "name": "Whey protein shake",
+    "category": "Drinks",
+    "serving": "1 scoop with water",
+    "grams": 30,
+    "calories": 120,
+    "protein": 24,
+    "carbs": 3,
+    "fat": 2,
+    "emoji": "🥤",
+    "aliases": [
+      "protein powder"
+    ],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "coffee",
+    "name": "Black coffee",
+    "category": "Drinks",
+    "serving": "1 cup",
+    "grams": 240,
+    "calories": 2,
+    "protein": 0.3,
+    "carbs": 0,
+    "fat": 0,
+    "emoji": "☕",
+    "aliases": [],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "pizza",
+    "name": "Margherita pizza",
+    "category": "Fast food",
+    "serving": "1 slice",
+    "grams": 100,
+    "calories": 270,
+    "protein": 11,
+    "carbs": 33,
+    "fat": 10,
+    "emoji": "🍕",
+    "aliases": [],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "burger",
+    "name": "Chicken burger",
+    "category": "Fast food",
+    "serving": "1 burger",
+    "grams": 200,
+    "calories": 450,
+    "protein": 24,
+    "carbs": 43,
+    "fat": 20,
+    "emoji": "🍔",
+    "aliases": [],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "fries",
+    "name": "French fries",
+    "category": "Fast food",
+    "serving": "1 medium serving",
+    "grams": 117,
+    "calories": 365,
+    "protein": 4,
+    "carbs": 48,
+    "fat": 17,
+    "emoji": "🍟",
+    "aliases": [],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "sandwich",
+    "name": "Vegetable sandwich",
+    "category": "Fast food",
+    "serving": "1 sandwich",
+    "grams": 180,
+    "calories": 280,
+    "protein": 9,
+    "carbs": 42,
+    "fat": 9,
+    "emoji": "🥪",
+    "aliases": [],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "pasta",
+    "name": "Tomato pasta",
+    "category": "Grains",
+    "serving": "1 bowl",
+    "grams": 250,
+    "calories": 350,
+    "protein": 12,
+    "carbs": 65,
+    "fat": 5,
+    "emoji": "🍝",
+    "aliases": [
+      "spaghetti"
+    ],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  },
+  {
+    "id": "brown-rice",
+    "name": "Brown rice",
+    "category": "Grains",
+    "serving": "1 bowl",
+    "grams": 150,
+    "calories": 185,
+    "protein": 4,
+    "carbs": 38,
+    "fat": 1.5,
+    "emoji": "🍚",
+    "aliases": [],
+    "source": "SnapBite starter estimates; recipes and brands vary"
+  }
+]

@@ -1,0 +1,356 @@
+{
+  "apple_pie": [
+    "usda:2707995"
+  ],
+  "baby_back_ribs": [
+    "usda:2705894"
+  ],
+  "baklava": [
+    "usda:2708044"
+  ],
+  "beef_tartare": [
+    "usda:2706394"
+  ],
+  "beignets": [
+    "usda:2708071"
+  ],
+  "bibimbap": [
+    "usda:2708950"
+  ],
+  "bread_pudding": [
+    "usda:2705680"
+  ],
+  "breakfast_burrito": [
+    "usda:2707343",
+    "usda:2707344"
+  ],
+  "bruschetta": [
+    "usda:2707652"
+  ],
+  "caesar_salad": [
+    "recipe:caesar_salad",
+    "usda:2709591"
+  ],
+  "carrot_cake": [
+    "usda:2707859"
+  ],
+  "ceviche": [
+    "usda:2706463"
+  ],
+  "cheesecake": [
+    "usda:2707861",
+    "usda:2707862"
+  ],
+  "chicken_curry": [
+    "usda:2706437"
+  ],
+  "chicken_quesadilla": [
+    "usda:2708593"
+  ],
+  "chicken_wings": [
+    "usda:2706078",
+    "usda:2706073"
+  ],
+  "chocolate_cake": [
+    "usda:2707866",
+    "usda:2707868"
+  ],
+  "chocolate_mousse": [
+    "usda:2705698"
+  ],
+  "churros": [
+    "usda:2708070"
+  ],
+  "clam_chowder": [
+    "usda:2707139",
+    "usda:2707138"
+  ],
+  "club_sandwich": [
+    "usda:2706993",
+    "usda:2706995"
+  ],
+  "crab_cakes": [
+    "usda:2706549"
+  ],
+  "creme_brulee": [
+    "usda:2705684"
+  ],
+  "cup_cakes": [
+    "usda:2707891",
+    "usda:2707864"
+  ],
+  "deviled_eggs": [
+    "usda:2707181"
+  ],
+  "donuts": [
+    "usda:2708063",
+    "usda:2708072"
+  ],
+  "dumplings": [
+    "usda:2708708",
+    "usda:2708705"
+  ],
+  "edamame": [
+    "usda:2707436"
+  ],
+  "eggs_benedict": [
+    "usda:2707180"
+  ],
+  "escargots": [
+    "usda:2706368"
+  ],
+  "falafel": [
+    "usda:2707408"
+  ],
+  "filet_mignon": [
+    "usda:2705841"
+  ],
+  "french_fries": [
+    "usda:2709456"
+  ],
+  "french_onion_soup": [
+    "usda:2710108"
+  ],
+  "french_toast": [
+    "usda:2708335"
+  ],
+  "fried_calamari": [
+    "usda:2706334"
+  ],
+  "fried_rice": [
+    "usda:2708951",
+    "usda:2708955"
+  ],
+  "frozen_yogurt": [
+    "usda:2705452"
+  ],
+  "garlic_bread": [
+    "usda:2707626"
+  ],
+  "gnocchi": [
+    "usda:2708722",
+    "usda:2708721"
+  ],
+  "greek_salad": [
+    "recipe:greek_salad",
+    "usda:2709830"
+  ],
+  "grilled_cheese_sandwich": [
+    "usda:2705804"
+  ],
+  "grilled_salmon": [
+    "usda:2706287"
+  ],
+  "guacamole": [
+    "usda:2709308"
+  ],
+  "gyoza": [
+    "usda:2708705",
+    "usda:2708708"
+  ],
+  "hamburger": [
+    "usda:2706920"
+  ],
+  "hot_and_sour_soup": [
+    "usda:2707136"
+  ],
+  "huevos_rancheros": [
+    "usda:2707191"
+  ],
+  "hummus": [
+    "usda:2707402"
+  ],
+  "ice_cream": [
+    "usda:2705629"
+  ],
+  "lasagna": [
+    "usda:2708750",
+    "usda:2708758"
+  ],
+  "macaroni_and_cheese": [
+    "usda:2708811"
+  ],
+  "miso_soup": [
+    "usda:2707455"
+  ],
+  "mussels": [
+    "usda:2706350"
+  ],
+  "nachos": [
+    "usda:2708576"
+  ],
+  "omelette": [
+    "usda:2707200",
+    "usda:2707208"
+  ],
+  "onion_rings": [
+    "usda:2710055"
+  ],
+  "oysters": [
+    "usda:2706351",
+    "usda:2706354"
+  ],
+  "pad_thai": [
+    "usda:2708805",
+    "usda:2708808"
+  ],
+  "paella": [
+    "usda:2706711"
+  ],
+  "pancakes": [
+    "usda:2708304"
+  ],
+  "peking_duck": [
+    "usda:2706141"
+  ],
+  "pho": [
+    "usda:2707124",
+    "usda:2707125"
+  ],
+  "pork_chop": [
+    "usda:2705867",
+    "usda:2705868"
+  ],
+  "pulled_pork_sandwich": [
+    "usda:2706976"
+  ],
+  "ramen": [
+    "usda:2709153",
+    "usda:2709154"
+  ],
+  "ravioli": [
+    "usda:2708763",
+    "usda:2708767"
+  ],
+  "red_velvet_cake": [
+    "usda:2707884"
+  ],
+  "samosa": [
+    "usda:2708730"
+  ],
+  "scallops": [
+    "usda:2706357",
+    "usda:2706359"
+  ],
+  "strawberry_shortcake": [
+    "usda:2707896"
+  ],
+  "sushi": [
+    "usda:2708959",
+    "usda:2708965"
+  ],
+  "tacos": [
+    "usda:2708515",
+    "usda:2708519"
+  ],
+  "tiramisu": [
+    "usda:2705702"
+  ],
+  "waffles": [
+    "usda:2708325"
+  ],
+  "biryani": [
+    "usda:2706538",
+    "usda:2708985",
+    "usda:2706490"
+  ],
+  "dal": [
+    "usda:2707427"
+  ],
+  "dosa": [
+    "usda:2708347",
+    "usda:2709129"
+  ],
+  "naan": [
+    "usda:2707613"
+  ],
+  "pakora": [
+    "usda:2710066"
+  ],
+  "paneer": [
+    "usda:2705740",
+    "usda:2709631"
+  ],
+  "caprese_salad": [
+    "usda:2705818"
+  ],
+  "hot_dog": [
+    "usda:2707056",
+    "usda:2707060"
+  ],
+  "pizza": [
+    "usda:2708614",
+    "usda:2708638"
+  ],
+  "spaghetti_bolognese": [
+    "usda:2708838"
+  ],
+  "sashimi": [
+    "usda:2706308",
+    "usda:2706284"
+  ],
+  "steak": [
+    "usda:2705829",
+    "usda:2705841"
+  ],
+  "prime_rib": [
+    "usda:172150"
+  ],
+  "foie_gras": [
+    "usda:171100"
+  ],
+  "beef_carpaccio": [
+    "recipe:beef_carpaccio"
+  ],
+  "beet_salad": [
+    "recipe:beet_salad"
+  ],
+  "cannoli": [
+    "recipe:cannoli"
+  ],
+  "cheese_plate": [
+    "recipe:cheese_plate"
+  ],
+  "croque_madame": [
+    "recipe:croque_madame"
+  ],
+  "fish_and_chips": [
+    "recipe:fish_and_chips"
+  ],
+  "lobster_bisque": [
+    "recipe:lobster_bisque"
+  ],
+  "lobster_roll_sandwich": [
+    "recipe:lobster_roll_sandwich"
+  ],
+  "macarons": [
+    "recipe:macarons"
+  ],
+  "panna_cotta": [
+    "recipe:panna_cotta"
+  ],
+  "poutine": [
+    "recipe:poutine"
+  ],
+  "risotto": [
+    "recipe:risotto"
+  ],
+  "seaweed_salad": [
+    "recipe:seaweed_salad"
+  ],
+  "shrimp_and_grits": [
+    "recipe:shrimp_and_grits"
+  ],
+  "spaghetti_carbonara": [
+    "recipe:spaghetti_carbonara"
+  ],
+  "spring_rolls": [
+    "recipe:spring_rolls"
+  ],
+  "takoyaki": [
+    "recipe:takoyaki"
+  ],
+  "tuna_tartare": [
+    "recipe:tuna_tartare"
+  ]
+}

@@ -1,0 +1,807 @@
+{
+  "version": "usda-fndds-2024-v1",
+  "catalogSha256": "e3da5750f4839557d3bcccdb1a34a7ad02e18f054553513ad4a8f1818ea1c2cd",
+  "foods": 5459,
+  "usdaRecords": 5439,
+  "referenceRecipeCount": 20,
+  "skippedIncompleteRecords": [
+    {
+      "fdcId": 2705383,
+      "name": "Milk, human",
+      "reason": "Missing energy or macro data"
+    }
+  ],
+  "archives": [
+    {
+      "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_survey_food_json_2024-10-31.zip",
+      "sha256": "dfb06ae7ddc397ccd570b91c14b75438ab2ba39f64f22d321f61d4a52a77f3eb"
+    },
+    {
+      "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+      "sha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
+    }
+  ],
+  "referenceRecipes": [
+    {
+      "id": "recipe:beef_carpaccio",
+      "name": "Beef carpaccio with Parmesan (reference recipe)",
+      "category": "Other",
+      "serving": "100 g",
+      "grams": 100,
+      "calories": 210.05,
+      "protein": 20.741,
+      "carbs": 1.302,
+      "fat": 13.111,
+      "emoji": "🍽️",
+      "aliases": [
+        "beef_carpaccio",
+        "beef carpaccio"
+      ],
+      "nutritionKind": "reference-recipe",
+      "source": "Reference recipe estimate using USDA ingredients. Finished edible yield: 100 g. 80 g Beef, tenderloin, steak, separable lean only, trimmed to 1/8\" fat, all grades, raw (FDC 171812); 10 g Cheese, Parmesan, dry grated (FDC 2705728); 5 g Olive oil (FDC 2710186); 5 g Lemon, raw (FDC 2709168). Recipe and yield are illustrative; confirm or replace for your meal.",
+      "portionOptions": [],
+      "recipeIngredients": [
+        {
+          "fdcId": 171812,
+          "name": "Beef, tenderloin, steak, separable lean only, trimmed to 1/8\" fat, all grades, raw",
+          "grams": 80
+        },
+        {
+          "fdcId": 2705728,
+          "name": "Cheese, Parmesan, dry grated",
+          "grams": 10
+        },
+        {
+          "fdcId": 2710186,
+          "name": "Olive oil",
+          "grams": 5
+        },
+        {
+          "fdcId": 2709168,
+          "name": "Lemon, raw",
+          "grams": 5
+        }
+      ],
+      "recipeYieldGrams": 100
+    },
+    {
+      "id": "recipe:beet_salad",
+      "name": "Beet salad with oil & vinegar (reference recipe)",
+      "category": "Other",
+      "serving": "100 g",
+      "grams": 100,
+      "calories": 86.55,
+      "protein": 1.503,
+      "carbs": 8.9835,
+      "fat": 5.162,
+      "emoji": "🍽️",
+      "aliases": [
+        "beet_salad",
+        "beet salad"
+      ],
+      "nutritionKind": "reference-recipe",
+      "source": "Reference recipe estimate using USDA ingredients. Finished edible yield: 100 g. 90 g Beets, fresh, cooked, no added fat (FDC 2709872); 5 g Olive oil (FDC 2710186); 5 g Vinegar (FDC 2709351). Recipe and yield are illustrative; confirm or replace for your meal.",
+      "portionOptions": [],
+      "recipeIngredients": [
+        {
+          "fdcId": 2709872,
+          "name": "Beets, fresh, cooked, no added fat",
+          "grams": 90
+        },
+        {
+          "fdcId": 2710186,
+          "name": "Olive oil",
+          "grams": 5
+        },
+        {
+          "fdcId": 2709351,
+          "name": "Vinegar",
+          "grams": 5
+        }
+      ],
+      "recipeYieldGrams": 100
+    },
+    {
+      "id": "recipe:cannoli",
+      "name": "Cannoli with ricotta filling (reference recipe)",
+      "category": "Other",
+      "serving": "100 g",
+      "grams": 100,
+      "calories": 304.3,
+      "protein": 6.889,
+      "carbs": 43.4385,
+      "fat": 11.315,
+      "emoji": "🍽️",
+      "aliases": [
+        "cannoli",
+        "cannoli"
+      ],
+      "nutritionKind": "reference-recipe",
+      "source": "Reference recipe estimate using USDA ingredients. Finished edible yield: 100 g. 30 g Pastry, mainly flour and water, fried (FDC 2708056); 45 g Cheese, Ricotta (FDC 2705750); 20 g Sugar, white, granulated or lump (FDC 2710258); 5 g Chocolate, dark, 45- 59% cacao solids (FDC 170271). Recipe and yield are illustrative; confirm or replace for your meal.",
+      "portionOptions": [],
+      "recipeIngredients": [
+        {
+          "fdcId": 2708056,
+          "name": "Pastry, mainly flour and water, fried",
+          "grams": 30
+        },
+        {
+          "fdcId": 2705750,
+          "name": "Cheese, Ricotta",
+          "grams": 45
+        },
+        {
+          "fdcId": 2710258,
+          "name": "Sugar, white, granulated or lump",
+          "grams": 20
+        },
+        {
+          "fdcId": 170271,
+          "name": "Chocolate, dark, 45- 59% cacao solids",
+          "grams": 5
+        }
+      ],
+      "recipeYieldGrams": 100
+    },
+    {
+      "id": "recipe:cheese_plate",
+      "name": "Cheese plate: cheddar, Brie & Swiss (reference recipe)",
+      "category": "Other",
+      "serving": "100 g",
+      "grams": 100,
+      "calories": 381.7,
+      "protein": 23.645,
+      "carbs": 1.543,
+      "fat": 31.204,
+      "emoji": "🍽️",
+      "aliases": [
+        "cheese_plate",
+        "cheese plate"
+      ],
+      "nutritionKind": "reference-recipe",
+      "source": "Reference recipe estimate using USDA ingredients. Finished edible yield: 100 g. 40 g Cheese, Cheddar (FDC 2705709); 30 g Cheese, brie (FDC 172177); 30 g Cheese, Swiss (FDC 2705735). Recipe and yield are illustrative; confirm or replace for your meal.",
+      "portionOptions": [],
+      "recipeIngredients": [
+        {
+          "fdcId": 2705709,
+          "name": "Cheese, Cheddar",
+          "grams": 40
+        },
+        {
+          "fdcId": 172177,
+          "name": "Cheese, brie",
+          "grams": 30
+        },
+        {
+          "fdcId": 2705735,
+          "name": "Cheese, Swiss",
+          "grams": 30
+        }
+      ],
+      "recipeYieldGrams": 100
+    },
+    {
+      "id": "recipe:croque_madame",
+      "name": "Croque madame with fried egg (reference recipe)",
+      "category": "Other",
+      "serving": "100 g",
+      "grams": 100,
+      "calories": 201.45,
+      "protein": 12.148,
+      "carbs": 15.845,
+      "fat": 9.919,
+      "emoji": "🍽️",
+      "aliases": [
+        "croque_madame",
+        "croque madame"
+      ],
+      "nutritionKind": "reference-recipe",
+      "source": "Reference recipe estimate using USDA ingredients. Finished edible yield: 200 g. 130 g Ham sandwich on white, with cheese (FDC 2706965); 50 g Egg, whole, fried with butter (FDC 2707159); 20 g Cream sauce, for use with vegetables (FDC 2710243). Recipe and yield are illustrative; confirm or replace for your meal.",
+      "portionOptions": [],
+      "recipeIngredients": [
+        {
+          "fdcId": 2706965,
+          "name": "Ham sandwich on white, with cheese",
+          "grams": 130
+        },
+        {
+          "fdcId": 2707159,
+          "name": "Egg, whole, fried with butter",
+          "grams": 50
+        },
+        {
+          "fdcId": 2710243,
+          "name": "Cream sauce, for use with vegetables",
+          "grams": 20
+        }
+      ],
+      "recipeYieldGrams": 200
+    },
+    {
+      "id": "recipe:fish_and_chips",
+      "name": "Fried cod & chips (reference recipe)",
+      "category": "Other",
+      "serving": "100 g",
+      "grams": 100,
+      "calories": 221.0,
+      "protein": 8.0,
+      "carbs": 17.45,
+      "fat": 13.3,
+      "emoji": "🍽️",
+      "aliases": [
+        "fish_and_chips",
+        "fish and chips"
+      ],
+      "nutritionKind": "reference-recipe",
+      "source": "Reference recipe estimate using USDA ingredients. Finished edible yield: 300 g. 150 g Fish, cod, fried (FDC 2706244); 150 g Potato, french fries, generic recipe (FDC 2709456). Recipe and yield are illustrative; confirm or replace for your meal.",
+      "portionOptions": [],
+      "recipeIngredients": [
+        {
+          "fdcId": 2706244,
+          "name": "Fish, cod, fried",
+          "grams": 150
+        },
+        {
+          "fdcId": 2709456,
+          "name": "Potato, french fries, generic recipe",
+          "grams": 150
+        }
+      ],
+      "recipeYieldGrams": 300
+    },
+    {
+      "id": "recipe:lobster_bisque",
+      "name": "Creamy lobster bisque (reference recipe)",
+      "category": "Other",
+      "serving": "100 g",
+      "grams": 100,
+      "calories": 93.4,
+      "protein": 5.636,
+      "carbs": 2.4165,
+      "fat": 6.7145,
+      "emoji": "🍽️",
+      "aliases": [
+        "lobster_bisque",
+        "lobster bisque"
+      ],
+      "nutritionKind": "reference-recipe",
+      "source": "Reference recipe estimate using USDA ingredients. Finished edible yield: 300 g. 60 g Lobster (FDC 2706349); 45 g Cream, heavy (FDC 2705597); 75 g Milk, whole (FDC 2705385); 105 g Soup, broth (FDC 2707132); 15 g Tomato sauce, for use with vegetables (FDC 2710247). Recipe and yield are illustrative; confirm or replace for your meal.",
+      "portionOptions": [],
+      "recipeIngredients": [
+        {
+          "fdcId": 2706349,
+          "name": "Lobster",
+          "grams": 60
+        },
+        {
+          "fdcId": 2705597,
+          "name": "Cream, heavy",
+          "grams": 45
+        },
+        {
+          "fdcId": 2705385,
+          "name": "Milk, whole",
+          "grams": 75
+        },
+        {
+          "fdcId": 2707132,
+          "name": "Soup, broth",
+          "grams": 105
+        },
+        {
+          "fdcId": 2710247,
+          "name": "Tomato sauce, for use with vegetables",
+          "grams": 15
+        }
+      ],
+      "recipeYieldGrams": 300
+    },
+    {
+      "id": "recipe:lobster_roll_sandwich",
+      "name": "Lobster roll with mayonnaise (reference recipe)",
+      "category": "Other",
+      "serving": "100 g",
+      "grams": 100,
+      "calories": 206.3,
+      "protein": 15.465,
+      "carbs": 14.817,
+      "fat": 9.127,
+      "emoji": "🍽️",
+      "aliases": [
+        "lobster_roll_sandwich",
+        "lobster roll sandwich"
+      ],
+      "nutritionKind": "reference-recipe",
+      "source": "Reference recipe estimate using USDA ingredients. Finished edible yield: 200 g. 120 g Lobster (FDC 2706349); 20 g Mayonnaise, regular (FDC 2710204); 60 g Roll, white, hot dog bun (FDC 2707656). Recipe and yield are illustrative; confirm or replace for your meal.",
+      "portionOptions": [],
+      "recipeIngredients": [
+        {
+          "fdcId": 2706349,
+          "name": "Lobster",
+          "grams": 120
+        },
+        {
+          "fdcId": 2710204,
+          "name": "Mayonnaise, regular",
+          "grams": 20
+        },
+        {
+          "fdcId": 2707656,
+          "name": "Roll, white, hot dog bun",
+          "grams": 60
+        }
+      ],
+      "recipeYieldGrams": 200
+    },
+    {
+      "id": "recipe:macarons",
+      "name": "Almond macarons with chocolate butter filling (reference recipe)",
+      "category": "Other",
+      "serving": "100 g",
+      "grams": 100,
+      "calories": 472.111111,
+      "protein": 7.814444,
+      "carbs": 55.676667,
+      "fat": 24.144444,
+      "emoji": "🍽️",
+      "aliases": [
+        "macarons",
+        "macarons"
+      ],
+      "nutritionKind": "reference-recipe",
+      "source": "Reference recipe estimate using USDA ingredients. Finished edible yield: 90 g. 20 g Almonds, unroasted (FDC 2707486); 20 g Egg, white, raw, fresh (FDC 172183); 40 g Sugar, white, granulated or lump (FDC 2710258); 10 g Butter, stick (FDC 2710155); 10 g Chocolate, dark, 45- 59% cacao solids (FDC 170271). Recipe and yield are illustrative; confirm or replace for your meal.",
+      "portionOptions": [],
+      "recipeIngredients": [
+        {
+          "fdcId": 2707486,
+          "name": "Almonds, unroasted",
+          "grams": 20
+        },
+        {
+          "fdcId": 172183,
+          "name": "Egg, white, raw, fresh",
+          "grams": 20
+        },
+        {
+          "fdcId": 2710258,
+          "name": "Sugar, white, granulated or lump",
+          "grams": 40
+        },
+        {
+          "fdcId": 2710155,
+          "name": "Butter, stick",
+          "grams": 10
+        },
+        {
+          "fdcId": 170271,
+          "name": "Chocolate, dark, 45- 59% cacao solids",
+          "grams": 10
+        }
+      ],
+      "recipeYieldGrams": 90
+    },
+    {
+      "id": "recipe:panna_cotta",
+      "name": "Vanilla panna cotta (reference recipe)",
+      "category": "Other",
+      "serving": "100 g",
+      "grams": 100,
+      "calories": 266.44,
+      "protein": 2.948,
+      "carbs": 17.423,
+      "fat": 20.5858,
+      "emoji": "🍽️",
+      "aliases": [
+        "panna_cotta",
+        "panna cotta"
+      ],
+      "nutritionKind": "reference-recipe",
+      "source": "Reference recipe estimate using USDA ingredients. Finished edible yield: 100 g. 55 g Cream, heavy (FDC 2705597); 30 g Milk, whole (FDC 2705385); 14 g Sugar, white, granulated or lump (FDC 2710258); 1 g Gelatins, dry powder, unsweetened (FDC 169599). Recipe and yield are illustrative; confirm or replace for your meal.",
+      "portionOptions": [],
+      "recipeIngredients": [
+        {
+          "fdcId": 2705597,
+          "name": "Cream, heavy",
+          "grams": 55
+        },
+        {
+          "fdcId": 2705385,
+          "name": "Milk, whole",
+          "grams": 30
+        },
+        {
+          "fdcId": 2710258,
+          "name": "Sugar, white, granulated or lump",
+          "grams": 14
+        },
+        {
+          "fdcId": 169599,
+          "name": "Gelatins, dry powder, unsweetened",
+          "grams": 1
+        }
+      ],
+      "recipeYieldGrams": 100
+    },
+    {
+      "id": "recipe:poutine",
+      "name": "Poutine with cheddar & beef gravy (reference recipe)",
+      "category": "Other",
+      "serving": "100 g",
+      "grams": 100,
+      "calories": 220.04,
+      "protein": 6.078,
+      "carbs": 16.2004,
+      "fat": 14.936,
+      "emoji": "🍽️",
+      "aliases": [
+        "poutine",
+        "poutine"
+      ],
+      "nutritionKind": "reference-recipe",
+      "source": "Reference recipe estimate using USDA ingredients. Finished edible yield: 250 g. 160 g Potato, french fries, generic recipe (FDC 2709456); 40 g Cheese, Cheddar (FDC 2705709); 50 g Gravy, beef (FDC 2707145). Recipe and yield are illustrative; confirm or replace for your meal.",
+      "portionOptions": [],
+      "recipeIngredients": [
+        {
+          "fdcId": 2709456,
+          "name": "Potato, french fries, generic recipe",
+          "grams": 160
+        },
+        {
+          "fdcId": 2705709,
+          "name": "Cheese, Cheddar",
+          "grams": 40
+        },
+        {
+          "fdcId": 2707145,
+          "name": "Gravy, beef",
+          "grams": 50
+        }
+      ],
+      "recipeYieldGrams": 250
+    },
+    {
+      "id": "recipe:risotto",
+      "name": "Parmesan risotto (reference recipe)",
+      "category": "Other",
+      "serving": "100 g",
+      "grams": 100,
+      "calories": 158.98,
+      "protein": 4.5264,
+      "carbs": 21.4248,
+      "fat": 5.83,
+      "emoji": "🍽️",
+      "aliases": [
+        "risotto",
+        "risotto"
+      ],
+      "nutritionKind": "reference-recipe",
+      "source": "Reference recipe estimate using USDA ingredients. Finished edible yield: 250 g. 185 g Rice, white, cooked, no added fat (FDC 2708408); 20 g Cheese, Parmesan, dry grated (FDC 2705728); 10 g Butter, stick (FDC 2710155); 35 g Soup, broth (FDC 2707132). Recipe and yield are illustrative; confirm or replace for your meal.",
+      "portionOptions": [],
+      "recipeIngredients": [
+        {
+          "fdcId": 2708408,
+          "name": "Rice, white, cooked, no added fat",
+          "grams": 185
+        },
+        {
+          "fdcId": 2705728,
+          "name": "Cheese, Parmesan, dry grated",
+          "grams": 20
+        },
+        {
+          "fdcId": 2710155,
+          "name": "Butter, stick",
+          "grams": 10
+        },
+        {
+          "fdcId": 2707132,
+          "name": "Soup, broth",
+          "grams": 35
+        }
+      ],
+      "recipeYieldGrams": 250
+    },
+    {
+      "id": "recipe:seaweed_salad",
+      "name": "Seaweed salad with sesame dressing (reference recipe)",
+      "category": "Other",
+      "serving": "100 g",
+      "grams": 100,
+      "calories": 99.15,
+      "protein": 2.808,
+      "carbs": 11.425,
+      "fat": 5.408,
+      "emoji": "🍽️",
+      "aliases": [
+        "seaweed_salad",
+        "seaweed salad"
+      ],
+      "nutritionKind": "reference-recipe",
+      "source": "Reference recipe estimate using USDA ingredients. Finished edible yield: 100 g. 80 g Seaweed, cooked, no added fat (FDC 2709989); 5 g Sesame oil (FDC 2710190); 10 g Vinegar (FDC 2709351); 5 g Sugar, white, granulated or lump (FDC 2710258). Recipe and yield are illustrative; confirm or replace for your meal.",
+      "portionOptions": [],
+      "recipeIngredients": [
+        {
+          "fdcId": 2709989,
+          "name": "Seaweed, cooked, no added fat",
+          "grams": 80
+        },
+        {
+          "fdcId": 2710190,
+          "name": "Sesame oil",
+          "grams": 5
+        },
+        {
+          "fdcId": 2709351,
+          "name": "Vinegar",
+          "grams": 10
+        },
+        {
+          "fdcId": 2710258,
+          "name": "Sugar, white, granulated or lump",
+          "grams": 5
+        }
+      ],
+      "recipeYieldGrams": 100
+    },
+    {
+      "id": "recipe:shrimp_and_grits",
+      "name": "Shrimp with cheese grits (reference recipe)",
+      "category": "Other",
+      "serving": "100 g",
+      "grams": 100,
+      "calories": 100.8,
+      "protein": 9.016,
+      "carbs": 7.3,
+      "fat": 3.68,
+      "emoji": "🍽️",
+      "aliases": [
+        "shrimp_and_grits",
+        "shrimp and grits"
+      ],
+      "nutritionKind": "reference-recipe",
+      "source": "Reference recipe estimate using USDA ingredients. Finished edible yield: 250 g. 100 g Shrimp, steamed or boiled (FDC 2706363); 150 g Grits, with cheese, unspecified fat (FDC 2708367). Recipe and yield are illustrative; confirm or replace for your meal.",
+      "portionOptions": [],
+      "recipeIngredients": [
+        {
+          "fdcId": 2706363,
+          "name": "Shrimp, steamed or boiled",
+          "grams": 100
+        },
+        {
+          "fdcId": 2708367,
+          "name": "Grits, with cheese, unspecified fat",
+          "grams": 150
+        }
+      ],
+      "recipeYieldGrams": 250
+    },
+    {
+      "id": "recipe:spaghetti_carbonara",
+      "name": "Spaghetti carbonara with egg, bacon & Parmesan (reference recipe)",
+      "category": "Other",
+      "serving": "100 g",
+      "grams": 100,
+      "calories": 208.14,
+      "protein": 11.7848,
+      "carbs": 21.8692,
+      "fat": 7.904,
+      "emoji": "🍽️",
+      "aliases": [
+        "spaghetti_carbonara",
+        "spaghetti carbonara"
+      ],
+      "nutritionKind": "reference-recipe",
+      "source": "Reference recipe estimate using USDA ingredients. Finished edible yield: 250 g. 170 g Pasta, cooked (FDC 2708357); 25 g Bacon, unspecified type of meat, cooked (FDC 2705885); 35 g Egg, whole, boiled or poached (FDC 2707154); 20 g Cheese, Parmesan, dry grated (FDC 2705728). Recipe and yield are illustrative; confirm or replace for your meal.",
+      "portionOptions": [],
+      "recipeIngredients": [
+        {
+          "fdcId": 2708357,
+          "name": "Pasta, cooked",
+          "grams": 170
+        },
+        {
+          "fdcId": 2705885,
+          "name": "Bacon, unspecified type of meat, cooked",
+          "grams": 25
+        },
+        {
+          "fdcId": 2707154,
+          "name": "Egg, whole, boiled or poached",
+          "grams": 35
+        },
+        {
+          "fdcId": 2705728,
+          "name": "Cheese, Parmesan, dry grated",
+          "grams": 20
+        }
+      ],
+      "recipeYieldGrams": 250
+    },
+    {
+      "id": "recipe:spring_rolls",
+      "name": "Fried vegetable spring rolls (reference recipe)",
+      "category": "Other",
+      "serving": "100 g",
+      "grams": 100,
+      "calories": 270.0,
+      "protein": 5.62,
+      "carbs": 30.0,
+      "fat": 14.1,
+      "emoji": "🍽️",
+      "aliases": [
+        "spring_rolls",
+        "spring rolls"
+      ],
+      "nutritionKind": "reference-recipe",
+      "source": "Reference recipe estimate using USDA ingredients. Finished edible yield: 100 g. 100 g Egg roll, meatless (FDC 2708700). Recipe and yield are illustrative; confirm or replace for your meal.",
+      "portionOptions": [],
+      "recipeIngredients": [
+        {
+          "fdcId": 2708700,
+          "name": "Egg roll, meatless",
+          "grams": 100
+        }
+      ],
+      "recipeYieldGrams": 100
+    },
+    {
+      "id": "recipe:takoyaki",
+      "name": "Takoyaki with mayonnaise (reference recipe)",
+      "category": "Other",
+      "serving": "100 g",
+      "grams": 100,
+      "calories": 249.105263,
+      "protein": 7.505789,
+      "carbs": 23.084211,
+      "fat": 13.767368,
+      "emoji": "🍽️",
+      "aliases": [
+        "takoyaki",
+        "takoyaki"
+      ],
+      "nutritionKind": "reference-recipe",
+      "source": "Reference recipe estimate using USDA ingredients. Finished edible yield: 95 g. 25 g Wheat flour, white, all-purpose, enriched, unbleached (FDC 168936); 15 g Egg, whole, raw (FDC 2707152); 20 g Octopus (FDC 2706331); 5 g Canola oil (FDC 2710188); 5 g Mayonnaise, regular (FDC 2710204); 30 g Water, tap (FDC 2710707). Recipe and yield are illustrative; confirm or replace for your meal.",
+      "portionOptions": [],
+      "recipeIngredients": [
+        {
+          "fdcId": 168936,
+          "name": "Wheat flour, white, all-purpose, enriched, unbleached",
+          "grams": 25
+        },
+        {
+          "fdcId": 2707152,
+          "name": "Egg, whole, raw",
+          "grams": 15
+        },
+        {
+          "fdcId": 2706331,
+          "name": "Octopus",
+          "grams": 20
+        },
+        {
+          "fdcId": 2710188,
+          "name": "Canola oil",
+          "grams": 5
+        },
+        {
+          "fdcId": 2710204,
+          "name": "Mayonnaise, regular",
+          "grams": 5
+        },
+        {
+          "fdcId": 2710707,
+          "name": "Water, tap",
+          "grams": 30
+        }
+      ],
+      "recipeYieldGrams": 95
+    },
+    {
+      "id": "recipe:tuna_tartare",
+      "name": "Tuna tartare with avocado & soy (reference recipe)",
+      "category": "Other",
+      "serving": "100 g",
+      "grams": 100,
+      "calories": 152.6,
+      "protein": 19.007,
+      "carbs": 1.526,
+      "fat": 7.601,
+      "emoji": "🍽️",
+      "aliases": [
+        "tuna_tartare",
+        "tuna tartare"
+      ],
+      "nutritionKind": "reference-recipe",
+      "source": "Reference recipe estimate using USDA ingredients. Finished edible yield: 100 g. 75 g Fish, tuna, raw (FDC 2706308); 15 g Avocado, raw (FDC 2709223); 5 g Soy sauce (FDC 2707442); 5 g Sesame oil (FDC 2710190). Recipe and yield are illustrative; confirm or replace for your meal.",
+      "portionOptions": [],
+      "recipeIngredients": [
+        {
+          "fdcId": 2706308,
+          "name": "Fish, tuna, raw",
+          "grams": 75
+        },
+        {
+          "fdcId": 2709223,
+          "name": "Avocado, raw",
+          "grams": 15
+        },
+        {
+          "fdcId": 2707442,
+          "name": "Soy sauce",
+          "grams": 5
+        },
+        {
+          "fdcId": 2710190,
+          "name": "Sesame oil",
+          "grams": 5
+        }
+      ],
+      "recipeYieldGrams": 100
+    },
+    {
+      "id": "recipe:caesar_salad",
+      "name": "Caesar salad with dressing (reference recipe)",
+      "category": "Other",
+      "serving": "100 g",
+      "grams": 100,
+      "calories": 146.75,
+      "protein": 3.7255,
+      "carbs": 6.8615,
+      "fat": 11.5685,
+      "emoji": "🍽️",
+      "aliases": [
+        "caesar_salad",
+        "caesar salad"
+      ],
+      "nutritionKind": "reference-recipe",
+      "source": "Reference recipe estimate using USDA ingredients. Finished edible yield: 200 g. 170 g Caesar salad, with romaine, no dressing (FDC 2709591); 30 g Caesar dressing (FDC 2710199). Recipe and yield are illustrative; confirm or replace for your meal.",
+      "portionOptions": [],
+      "recipeIngredients": [
+        {
+          "fdcId": 2709591,
+          "name": "Caesar salad, with romaine, no dressing",
+          "grams": 170
+        },
+        {
+          "fdcId": 2710199,
+          "name": "Caesar dressing",
+          "grams": 30
+        }
+      ],
+      "recipeYieldGrams": 200
+    },
+    {
+      "id": "recipe:greek_salad",
+      "name": "Greek salad with oil dressing (reference recipe)",
+      "category": "Other",
+      "serving": "100 g",
+      "grams": 100,
+      "calories": 90.6,
+      "protein": 2.6125,
+      "carbs": 4.1325,
+      "fat": 7.147,
+      "emoji": "🍽️",
+      "aliases": [
+        "greek_salad",
+        "greek salad"
+      ],
+      "nutritionKind": "reference-recipe",
+      "source": "Reference recipe estimate using USDA ingredients. Finished edible yield: 200 g. 190 g Greek Salad, no dressing (FDC 2709830); 10 g Olive oil (FDC 2710186). Recipe and yield are illustrative; confirm or replace for your meal.",
+      "portionOptions": [],
+      "recipeIngredients": [
+        {
+          "fdcId": 2709830,
+          "name": "Greek Salad, no dressing",
+          "grams": 190
+        },
+        {
+          "fdcId": 2710186,
+          "name": "Olive oil",
+          "grams": 10
+        }
+      ],
+      "recipeYieldGrams": 200
+    }
+  ],
+  "notes": "USDA macronutrients are per 100 g edible food. Reference recipe values are ingredient-weighted estimates with stated yields, not laboratory measurements. Standard household portions are estimates; a scale is needed for measured grams."
+}

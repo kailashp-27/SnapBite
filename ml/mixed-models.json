@@ -1,0 +1,9 @@
+{
+  "model": "Xenova/slimsam-77-uniform",
+  "revision": "5850ab45f587c112167512ffef949107115e26a0",
+  "license": "Apache-2.0",
+  "assets": {
+    "prompt_encoder_mask_decoder_quantized.onnx": "cb90b279f549d2cab7fd6e20c38522438c65d84bdcca3d2a764cff7d857fdce2",
+    "vision_encoder_quantized.onnx": "cce23c7b2e5d4f330932738fb67ba518e04b0d99ccdd1cccd22a7da4e01f2971"
+  }
+}

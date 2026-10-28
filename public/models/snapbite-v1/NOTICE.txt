@@ -1,0 +1,19 @@
+SnapBite on-device food recognition
+
+Contains a MobileNetV2 backbone and Food-101 classifier derived from:
+https://huggingface.co/AlexKoff88/mobilenet_v2_food101
+Revision: 7d05d3878ee7f2aad7ad159018a8e5fdb4953d41
+Upstream model license: Apache-2.0; see LICENSE-base.txt.
+
+The trained checkpoint was reconstructed into ONNX with evaluation BatchNorm
+folding. A regional linear head was trained on the CC0-1.0 dataset:
+https://huggingface.co/datasets/bharat-raghunathan/indian-foods-dataset
+Revision: ef509a8b4bfd46b76530ad329f81586faf904aad
+
+Weights were compressed with per-channel INT8 weight quantization; activations
+remain float32. The original upstream ONNX artifact failed verification and
+is not the deployed model. Training and benchmark details: ml/README.md.
+
+ONNX Runtime Web 1.23.2 is distributed under the MIT license.
+Copyright (c) Microsoft Corporation. All rights reserved.
+See LICENSE-runtime.txt.

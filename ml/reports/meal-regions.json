@@ -1,0 +1,84 @@
+{
+  "foodSources": [
+    "bharat-raghunathan/indian-foods-dataset",
+    "ethz/food101"
+  ],
+  "manuallyReviewedPlateCrops": 95,
+  "manualAnnotations": "scripts/mixed-region-labels.json",
+  "rejectedBackgroundSource": "SohlHealth/sohl-multidish-yolo-dataset",
+  "datasetRevision": "ef83f6636e5d9e0593aeaecae49ef05ef418693a",
+  "modelSha256": "6e7a5cd6e76faafaef16905a2a0baa4a2bb066017af5383d85d1250c06323f5e",
+  "backgroundPlateImages": 127,
+  "duplicateImagesRemoved": 0,
+  "classes": [
+    "flatbread",
+    "curry",
+    "rice",
+    "other"
+  ],
+  "validation": {
+    "regions": 716,
+    "accuracy": 0.8100558659217877,
+    "balancedAccuracy": 0.8771228441972648,
+    "confusion": [
+      [
+        66,
+        0,
+        1,
+        8
+      ],
+      [
+        2,
+        111,
+        2,
+        6
+      ],
+      [
+        0,
+        0,
+        39,
+        2
+      ],
+      [
+        48,
+        37,
+        30,
+        364
+      ]
+    ]
+  },
+  "test": {
+    "regions": 1339,
+    "accuracy": 0.8110530246452576,
+    "balancedAccuracy": 0.8973249367290859,
+    "confusion": [
+      [
+        97,
+        0,
+        0,
+        8
+      ],
+      [
+        1,
+        195,
+        1,
+        15
+      ],
+      [
+        0,
+        1,
+        45,
+        0
+      ],
+      [
+        124,
+        55,
+        48,
+        749
+      ]
+    ]
+  },
+  "fitRegions": 2922,
+  "bestEpoch": 125,
+  "limits": "Food-family classification on verified dish photos plus manually reviewed training-plate crops. Weak background crop targets and source multi-dish category IDs were rejected. Manual crops use training image groups only, and are split by original group for fitting/validation. Test metric is on original dish photos, not mixed-plate detection, chapati counts or portion weights. Chapati recipe identity is not specifically trained; flatbread suggestions need recipe confirmation."
+}

@@ -1,0 +1,17 @@
+node_modules/
+dist/
+*.local
+.env*
+!.env.example
+coverage/
+*.tsbuildinfo
+.npm-cache/
+.npm-downloads/
+.ml-work/
+__pycache__/
+public/models/snapbite-v1/runtime/
+public/models/snapbite-v1/model.*.onnx
+public/models/snapbite-v1/manifest.json
+
+public/models/mixed-v1/*.onnx
+public/models/mixed-v1/manifest.json

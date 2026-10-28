@@ -1,0 +1,9 @@
+Mixed-meal segmentation uses the quantized ONNX export of Xenova/slimsam-77-uniform.
+Pinned revision: 5850ab45f587c112167512ffef949107115e26a0.
+Source: https://huggingface.co/Xenova/slimsam-77-uniform
+Underlying checkpoint: nielsr/slimsam-77-uniform; SlimSAM and Segment Anything.
+License declared by the export: Apache-2.0; full license included as LICENSE.txt.
+Model hashes are pinned in ml/mixed-models.json and checked during every build.
+The weights are redistributed without modification. SnapBite supplies its own
+grid prompting, mask filtering, food-family classifier and portion heuristics.
+These models do not measure food weight and were not trained for chapati counts.

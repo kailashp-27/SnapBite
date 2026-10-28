@@ -1,0 +1,396 @@
+{
+  "runtime": "ONNX Runtime CPU, 2 threads; not a browser or phone speed benchmark",
+  "limits": "Visual audit only. Source class labels were rejected. No portion weights or count ground truth available, so no quantity accuracy is claimed.",
+  "cases": [
+    {
+      "file": "images/100_png.rf.779c1f1323c61a252def91ee44b0b287.jpg",
+      "seconds": 5.4877431000059005,
+      "maskProposals": 5,
+      "selectedRegions": [
+        {
+          "id": "40",
+          "area": 0.12022569444444445,
+          "box": [
+            0.375,
+            0.3645833333333333,
+            0.4270833333333333,
+            0.3854166666666667
+          ],
+          "quality": 0.9177185893058777,
+          "family": "curry",
+          "confidence": 0.9867457817739566,
+          "labelSuggestion": "risotto"
+        },
+        {
+          "id": "26",
+          "area": 0.020833333333333332,
+          "box": [
+            0.625,
+            0.21875,
+            0.1875,
+            0.15625
+          ],
+          "quality": 0.9597790241241455,
+          "family": "flatbread",
+          "confidence": 0.8764320605397757,
+          "labelSuggestion": "dal"
+        },
+        {
+          "id": "19",
+          "area": 0.13465711805555555,
+          "box": [
+            0.19791666666666666,
+            0.052083333333333336,
+            0.6041666666666666,
+            0.3541666666666667
+          ],
+          "quality": 0.9622170329093933,
+          "family": "curry",
+          "confidence": 0.454147934850297,
+          "labelSuggestion": "ramen"
+        },
+        {
+          "id": "34",
+          "area": 0.060221354166666664,
+          "box": [
+            0.07291666666666667,
+            0.34375,
+            0.28125,
+            0.3229166666666667
+          ],
+          "quality": 0.8868682384490967,
+          "family": "other",
+          "confidence": 0.541459833542165,
+          "labelSuggestion": "clam_chowder"
+        }
+      ],
+      "plateReferenceFound": false
+    },
+    {
+      "file": "images/25_png.rf.1b3528169b9d40d52a23dbb5ea60a406.jpg",
+      "seconds": 7.144659799989313,
+      "maskProposals": 16,
+      "selectedRegions": [
+        {
+          "id": "22",
+          "area": 0.028971354166666668,
+          "box": [
+            0.3645833333333333,
+            0.28125,
+            0.25,
+            0.16666666666666666
+          ],
+          "quality": 0.9646814465522766,
+          "family": "rice",
+          "confidence": 0.996846243020151,
+          "labelSuggestion": "biryani"
+        },
+        {
+          "id": "26",
+          "area": 0.034722222222222224,
+          "box": [
+            0.6041666666666666,
+            0.25,
+            0.19791666666666666,
+            0.25
+          ],
+          "quality": 0.9459773302078247,
+          "family": "rice",
+          "confidence": 0.9636444918629816,
+          "labelSuggestion": "biryani"
+        },
+        {
+          "id": "2",
+          "area": 0.026909722222222224,
+          "box": [
+            0.041666666666666664,
+            0.0,
+            0.23958333333333334,
+            0.3020833333333333
+          ],
+          "quality": 0.9390355348587036,
+          "family": "flatbread",
+          "confidence": 0.9592381303793465,
+          "labelSuggestion": "naan"
+        },
+        {
+          "id": "34",
+          "area": 0.026801215277777776,
+          "box": [
+            0.22916666666666666,
+            0.4270833333333333,
+            0.22916666666666666,
+            0.16666666666666666
+          ],
+          "quality": 0.938430905342102,
+          "family": "rice",
+          "confidence": 0.9121362093365287,
+          "labelSuggestion": "ramen"
+        },
+        {
+          "id": "55",
+          "area": 0.017469618055555556,
+          "box": [
+            0.65625,
+            0.6770833333333334,
+            0.15625,
+            0.14583333333333334
+          ],
+          "quality": 0.9294442534446716,
+          "family": "curry",
+          "confidence": 0.899510279046518,
+          "labelSuggestion": "hot_and_sour_soup"
+        },
+        {
+          "id": "62",
+          "area": 0.0945095486111111,
+          "box": [
+            0.0,
+            0.7708333333333334,
+            1.0,
+            0.22916666666666666
+          ],
+          "quality": 0.9283899068832397,
+          "family": "curry",
+          "confidence": 0.8904898798698822,
+          "labelSuggestion": "paneer"
+        },
+        {
+          "id": "20",
+          "area": 0.051106770833333336,
+          "box": [
+            0.07291666666666667,
+            0.19791666666666666,
+            0.2916666666666667,
+            0.3020833333333333
+          ],
+          "quality": 0.8924927711486816,
+          "family": "flatbread",
+          "confidence": 0.8363832846340886,
+          "labelSuggestion": "naan"
+        },
+        {
+          "id": "73",
+          "area": 0.030815972222222224,
+          "box": [
+            0.5625,
+            0.6979166666666666,
+            0.375,
+            0.25
+          ],
+          "quality": 0.8536165356636047,
+          "family": "curry",
+          "confidence": 0.8193448780126508,
+          "labelSuggestion": "cholebhature"
+        },
+        {
+          "id": "13",
+          "area": 0.028754340277777776,
+          "box": [
+            0.10416666666666667,
+            0.0,
+            0.8958333333333334,
+            0.25
+          ],
+          "quality": 0.8253020644187927,
+          "family": "other",
+          "confidence": 0.8074656241875608,
+          "labelSuggestion": "ice_cream"
+        },
+        {
+          "id": "28",
+          "area": 0.019639756944444444,
+          "box": [
+            0.8125,
+            0.2604166666666667,
+            0.17708333333333334,
+            0.14583333333333334
+          ],
+          "quality": 0.954748809337616,
+          "family": "other",
+          "confidence": 0.5097770431932378,
+          "labelSuggestion": "steak"
+        }
+      ],
+      "plateReferenceFound": false
+    },
+    {
+      "file": "images/27_png.rf.8160264a3a4517c2bad5586e9e2c5b25.jpg",
+      "seconds": 5.904398699989542,
+      "maskProposals": 5,
+      "selectedRegions": [
+        {
+          "id": "19",
+          "area": 0.056966145833333336,
+          "box": [
+            0.20833333333333334,
+            0.19791666666666666,
+            0.3125,
+            0.28125
+          ],
+          "quality": 0.942251443862915,
+          "family": "other",
+          "confidence": 0.9569007399137375,
+          "labelSuggestion": "gyoza"
+        },
+        {
+          "id": "47",
+          "area": 0.049479166666666664,
+          "box": [
+            0.041666666666666664,
+            0.6041666666666666,
+            0.6354166666666666,
+            0.3333333333333333
+          ],
+          "quality": 0.8182299137115479,
+          "family": "curry",
+          "confidence": 0.9155275667353876,
+          "labelSuggestion": "cholebhature"
+        },
+        {
+          "id": "35",
+          "area": 0.06304253472222222,
+          "box": [
+            0.0625,
+            0.4270833333333333,
+            0.2916666666666667,
+            0.3020833333333333
+          ],
+          "quality": 0.9634647369384766,
+          "family": "other",
+          "confidence": 0.8941680989032164,
+          "labelSuggestion": "pancakes"
+        },
+        {
+          "id": "67",
+          "area": 0.13975694444444445,
+          "box": [
+            0.3645833333333333,
+            0.5104166666666666,
+            0.4270833333333333,
+            0.4270833333333333
+          ],
+          "quality": 0.9375260472297668,
+          "family": "rice",
+          "confidence": 0.5252239098706085,
+          "labelSuggestion": "cholebhature"
+        }
+      ],
+      "plateReferenceFound": false
+    },
+    {
+      "file": "images/30_png.rf.81ac93e1f9167e0ce7b0bb7a725383e8.jpg",
+      "seconds": 6.292642299988074,
+      "maskProposals": 9,
+      "selectedRegions": [
+        {
+          "id": "56",
+          "area": 0.047309027777777776,
+          "box": [
+            0.53125,
+            0.4479166666666667,
+            0.375,
+            0.375
+          ],
+          "quality": 0.9320540428161621,
+          "family": "curry",
+          "confidence": 0.9370799389057086,
+          "labelSuggestion": "dal"
+        },
+        {
+          "id": "73",
+          "area": 0.09526909722222222,
+          "box": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "quality": 0.9770203828811646,
+          "family": "other",
+          "confidence": 0.8466748164827368,
+          "labelSuggestion": "samosa"
+        },
+        {
+          "id": "20",
+          "area": 0.07411024305555555,
+          "box": [
+            0.21875,
+            0.1875,
+            0.28125,
+            0.4583333333333333
+          ],
+          "quality": 0.9639469385147095,
+          "family": "other",
+          "confidence": 0.7625871315806858,
+          "labelSuggestion": "dabeli"
+        },
+        {
+          "id": "11",
+          "area": 0.11653645833333333,
+          "box": [
+            0.5833333333333334,
+            0.03125,
+            0.3958333333333333,
+            0.4895833333333333
+          ],
+          "quality": 0.9563513994216919,
+          "family": "other",
+          "confidence": 0.6645965494151084,
+          "labelSuggestion": "french_onion_soup"
+        },
+        {
+          "id": "17",
+          "area": 0.07855902777777778,
+          "box": [
+            0.0,
+            0.17708333333333334,
+            0.5,
+            0.46875
+          ],
+          "quality": 0.8774175643920898,
+          "family": "other",
+          "confidence": 0.65574036822073,
+          "labelSuggestion": "samosa"
+        }
+      ],
+      "plateReferenceFound": false
+    },
+    {
+      "file": "images/42_png.rf.719bf1c3c1c24de77b6bbf70a0dbf4fd.jpg",
+      "seconds": 6.032522299996344,
+      "maskProposals": 5,
+      "selectedRegions": [
+        {
+          "id": "12",
+          "area": 0.22330729166666666,
+          "box": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "quality": 0.9910814762115479,
+          "family": "rice",
+          "confidence": 0.9965402093426924,
+          "labelSuggestion": "biryani"
+        },
+        {
+          "id": "18",
+          "area": 0.7225477430555556,
+          "box": [
+            0.0,
+            0.020833333333333332,
+            0.9895833333333334,
+            0.9583333333333334
+          ],
+          "quality": 0.9666458368301392,
+          "family": "rice",
+          "confidence": 0.9966245593387056,
+          "labelSuggestion": "biryani"
+        }
+      ],
+      "plateReferenceFound": false
+    }
+  ]
+}
