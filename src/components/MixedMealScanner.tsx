@@ -17,6 +17,7 @@ import {plateArea as outlineArea,type PlateOutline,type PlateReference} from '..
 import type {MealEvaluation} from '../meal-evaluation';
 import {snapshotEvaluation} from '../meal-evaluation-store';
 import EvaluationEditor from './EvaluationEditor';
+import CameraViewfinder from './CameraViewfinder';
 
 interface Draft {id:string;family:PortionFamily;regions:MealRegion[];foodId:string;choice:PortionChoice|null;manual:boolean;}
 interface Props {date:string;libraryReady:boolean;notify:(message:string)=>void;onLogged:()=>void;}
@@ -45,6 +46,7 @@ export default function MixedMealScanner({date,libraryReady,notify,onLogged}:Pro
   const [searching,setSearching]=useState<string|null>(null);
   const [plateOutline,setPlateOutline]=useState<PlateOutline|null>(null),[calibrating,setCalibrating]=useState(false);
   const [originalScan,setOriginalScan]=useState<MealEvaluation|null>(null),[evaluating,setEvaluating]=useState(false);
+  const [showCamera, setShowCamera] = useState(false);
   const photoFile=useRef<File|null>(null);
   const camera=useRef<HTMLInputElement>(null),gallery=useRef<HTMLInputElement>(null),generation=useRef(0),controller=useRef<AbortController|null>(null);
   const alive=useRef(true);
@@ -124,7 +126,21 @@ export default function MixedMealScanner({date,libraryReady,notify,onLogged}:Pro
       {photo&&detection&&!busy&&<div className="plate-scale-status"><span>{plateReference.source==='manual'?'Plate outline fitted':plateReference.source==='detected'?'Plate outline suggested':'Plate area assumed'}</span><button className="text-button" disabled={saving} onClick={()=>setCalibrating(true)}>{plateReference.source==='assumed'?'Set plate outline':'Adjust plate outline'}</button>{plateOutline&&<button className="text-button" disabled={saving} onClick={()=>setPlateOutline(null)}>Reset outline</button>}<small>Changes update suggested portions. Your edited quantities stay as entered.</small></div>}
       <input ref={camera} hidden type="file" accept="image/*" capture="environment" onChange={event=>{const file=event.target.files?.[0];if(file)void analyze(file);event.target.value='';}}/>
       <input ref={gallery} hidden type="file" accept="image/*" onChange={event=>{const file=event.target.files?.[0];if(file)void analyze(file);event.target.value='';}}/>
-      <div className="camera-actions"><button className="primary-button" disabled={!ready||!libraryReady||locked} onClick={()=>camera.current?.click()}><Camera size={18}/>Take meal photo</button><button className="secondary-button" disabled={!ready||!libraryReady||locked} onClick={()=>gallery.current?.click()}><ImagePlus size={18}/>Choose meal photo</button></div>
+      <div className="camera-actions"><button className="primary-button" disabled={!ready||!libraryReady||locked} onClick={()=>setShowCamera(true)}><Camera size={18}/>Take meal photo</button><button className="secondary-button" disabled={!ready||!libraryReady||locked} onClick={()=>gallery.current?.click()}><ImagePlus size={18}/>Choose meal photo</button></div>
+      {showCamera && (
+        <CameraViewfinder
+          title="Scan Meal Plate"
+          onCapture={file => {
+            setShowCamera(false);
+            void analyze(file);
+          }}
+          onClose={() => setShowCamera(false)}
+          onPickGallery={() => {
+            setShowCamera(false);
+            gallery.current?.click();
+          }}
+        />
+      )}
       <details className="plate-profile"><summary>Plate size · {diameter} cm {savedScale?'saved':'assumed'}</summary><p>A known plate diameter improves scale. Bowl depth, hidden pieces and recipe ingredients remain uncertain.</p><label>Plate diameter (cm)<input type="number" min={10} max={50} step={.5} value={diameter||''} onChange={event=>{setDiameter(Number(event.target.value));setSavedScale(false);}}/></label><button className="secondary-button" disabled={diameter<10||diameter>50} onClick={()=>void db.scanPreferences.put({id:'plate',plateDiameterCm:diameter}).then(()=>{setSavedScale(true);notify('Plate diameter saved for future scans');}).catch(()=>notify('Plate size could not be saved'))}>Remember known plate size</button><small>{plateReference.source==='manual'?'Using your fitted plate outline.':plateReference.source==='detected'?'Using a model-suggested plate outline.':'Plate area is assumed. Fit an outline to improve the photo scale.'}</small></details>
       <details className="mixed-limits"><summary>How these estimates work</summary><p>Food regions use a local segmentation model. Flatbread counts include visible regions only. Portion sizes use image area, plate size, standard serving weights and assumed food depth—not measured grams. Hidden stacks, bowls and sauces can produce large errors. The ranges are provisional, not validated confidence intervals.</p></details>
       {originalScan&&!busy&&<details className="mixed-limits"><summary>Help improve scanning</summary><p>Have measured portions? Save the original scan with actual foods, visible counts and cooked weights. Evaluation examples stay separate from your diary and are managed in Settings.</p><button className="secondary-button full" disabled={saving} onClick={()=>setEvaluating(true)}>Check a measured meal</button></details>}

@@ -1,6 +1,7 @@
 import {useEffect, useRef, useState} from 'react';
 import {useLiveQuery} from 'dexie-react-hooks';
 import {ArrowRight, Camera, Check, CircleHelp, Download, ImagePlus, LoaderCircle, ScanLine, Search, ShieldCheck, X} from 'lucide-react';
+import CameraViewfinder from './CameraViewfinder';
 import {classify, warmScanner, type Prediction, type ScanMode} from '../scanner';
 import {confidentPrediction, formatScore, isLowConfidence} from '../scanner-math';
 import {prepareScanner, scannerManifest, scannerReady, type DownloadProgress, type ScannerManifest} from '../scanner-assets';
@@ -20,6 +21,7 @@ export default function Scanner({onPick, notify}: {onPick: (query: string, food?
   const [photo, setPhoto] = useState(''), [predictions, setPredictions] = useState<Prediction[]>([]);
   const [busy, setBusy] = useState(false), [message, setMessage] = useState(''), [mode, setMode] = useState<ScanMode>('auto');
   const [inferenceMs, setInferenceMs] = useState(0);
+  const [showCamera, setShowCamera] = useState(false);
   const camera = useRef<HTMLInputElement>(null), gallery = useRef<HTMLInputElement>(null);
   const generation = useRef(0), download = useRef<AbortController | null>(null);
   const predictionKey = predictions.map(prediction => prediction.label).join('|');
@@ -83,7 +85,21 @@ export default function Scanner({onPick, notify}: {onPick: (query: string, food?
       </div>
       <input ref={camera} type="file" accept="image/*" capture="environment" hidden onChange={event => {const file = event.target.files?.[0]; if (file) selectPhoto(file); event.target.value = '';}}/>
       <input ref={gallery} type="file" accept="image/*" hidden onChange={event => {const file = event.target.files?.[0]; if (file) selectPhoto(file); event.target.value = '';}}/>
-      <div className="camera-actions"><button className="primary-button" disabled={!ready || locked} onClick={() => camera.current?.click()}><Camera size={18}/> Take a photo</button><button className="secondary-button" disabled={!ready || locked} onClick={() => gallery.current?.click()}><ImagePlus size={18}/> Choose photo</button></div>
+      <div className="camera-actions"><button className="primary-button" disabled={!ready || locked} onClick={() => setShowCamera(true)}><Camera size={18}/> Take a photo</button><button className="secondary-button" disabled={!ready || locked} onClick={() => gallery.current?.click()}><ImagePlus size={18}/> Choose photo</button></div>
+      {showCamera && (
+        <CameraViewfinder
+          title="Snap Your Dish"
+          onCapture={file => {
+            setShowCamera(false);
+            selectPhoto(file);
+          }}
+          onClose={() => setShowCamera(false)}
+          onPickGallery={() => {
+            setShowCamera(false);
+            gallery.current?.click();
+          }}
+        />
+      )}
       {message && <div className="notice scanner-notice" role="alert"><CircleHelp size={19}/><p>{message}</p></div>}
       {predictions.length > 0 && <section className="scan-results" aria-live="polite"><div className="scan-results-heading"><div><h3>{confident ? 'Does this look right?' : isLowConfidence(predictions) ? 'Low confidence suggestions' : 'A few possibilities to check'}</h3></div><span className="inference-time">{duration(inferenceMs)} · on device</span></div>
       {isLowConfidence(predictions) && <div className="notice scanner-notice" role="alert"><CircleHelp size={18}/><p><strong>Uncertain prediction:</strong> This photo may be unclear, poorly lit, or not a recognized food dish. Check the suggestions below or search manually.</p></div>}

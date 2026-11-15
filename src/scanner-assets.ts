@@ -2,6 +2,11 @@ import type {ScannerConfig} from './scanner-math';
 
 export const SCANNER_CACHE = 'snapbite-scanner-v1';
 const MANIFEST_URL = '/models/snapbite-v1/manifest.json';
+const SCANNER_CDN_FALLBACK: Record<string, string> = {
+  wasm: 'https://cdn.jsdelivr.net/npm/onnxruntime-web@1.23.2/dist/ort-wasm-simd-threaded.wasm',
+  module: 'https://cdn.jsdelivr.net/npm/onnxruntime-web@1.23.2/dist/ort-wasm-simd-threaded.mjs',
+  model: 'https://raw.githubusercontent.com/kailashp-27/SnapBite/main/public/models/snapbite-v1/model.6e7a5cd6e76f.onnx',
+};
 export interface ScannerAsset {id: 'model' | 'wasm' | 'module'; url: string; sha256: string; bytes: number;}
 export interface ScannerManifest {version: string; config: ScannerConfig; assets: ScannerAsset[]; totalBytes: number;}
 export interface DownloadProgress {loaded: number; total: number; file: string;}
@@ -52,7 +57,19 @@ export async function prepareScanner(manifest: ScannerManifest, onProgress: (pro
   for (const asset of manifest.assets) {
     const cached = await cache.match(asset.url);
     if (cached?.headers.get('X-SnapBite-SHA256') === asset.sha256) {loaded += asset.bytes; onProgress({loaded, total: manifest.totalBytes, file: asset.id}); continue;}
-    const response = await fetch(asset.url, {cache: 'reload', signal});
+    let response: Response;
+    try {
+      response = await fetch(asset.url, {cache: 'reload', signal});
+      const contentType = response.headers.get('content-type') || '';
+      if (!response.ok || contentType.includes('text/html') || contentType.includes('text/plain')) {
+        const fallback = SCANNER_CDN_FALLBACK[asset.id];
+        if (fallback) response = await fetch(fallback, {cache: 'reload', signal});
+      }
+    } catch (err) {
+      const fallback = SCANNER_CDN_FALLBACK[asset.id];
+      if (fallback) response = await fetch(fallback, {cache: 'reload', signal});
+      else throw err;
+    }
     if (!response.ok || !response.body) throw Error('The scanner download was interrupted. Reconnect and tap Retry; completed files are kept.');
     const reader = response.body.getReader(); const chunks: Uint8Array[] = [];
     let size = 0;

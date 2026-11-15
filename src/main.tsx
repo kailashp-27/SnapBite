@@ -16,4 +16,13 @@ registerSW({
   onNeedRefresh() {window.dispatchEvent(new Event('snapbite-update'));},
   onOfflineReady() {window.dispatchEvent(new Event('snapbite-offline'));},
 });
+
+if (typeof window !== 'undefined') {
+  const cleanHUD = () => {
+    document.querySelectorAll('#nl-badge-frame, #nl-hud-frame, iframe[title*="Netlify"], iframe[title*="Powered by Netlify"]').forEach(el => el.remove());
+  };
+  cleanHUD();
+  window.addEventListener('DOMContentLoaded', cleanHUD);
+  window.addEventListener('load', cleanHUD);
+}
 ReactDOM.createRoot(document.getElementById('root')!).render(<React.StrictMode><StorageBoundary><App/></StorageBoundary></React.StrictMode>);

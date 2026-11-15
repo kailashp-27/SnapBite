@@ -1,2 +1,32 @@
 <!doctype html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/><meta name="theme-color" content="#121212"/><meta name="description" content="SnapBite is your private, offline food diary with on-device food recognition."/><link rel="icon" href="/icon.svg" type="image/svg+xml"/><link rel="apple-touch-icon" href="/icon-192.png"/><title>SnapBite — Food diary</title></head><body><div id="root"></div><script type="module" src="/src/main.tsx"></script></body></html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#121212" />
+    <meta name="description" content="SnapBite is your private, offline food diary with on-device food recognition." />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <title>SnapBite — Food diary</title>
+    <script>
+      (function() {
+        var kill = function() {
+          var frames = document.querySelectorAll('#nl-badge-frame, #nl-hud-frame, iframe[title*="Netlify"], iframe[title*="Powered by Netlify"]');
+          for (var i = 0; i < frames.length; i++) {
+            frames[i].remove();
+          }
+        };
+        if (window.MutationObserver) {
+          new MutationObserver(kill).observe(document.documentElement, {childList: true, subtree: true});
+        }
+        window.addEventListener('DOMContentLoaded', kill);
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="nl-badge-frame" style="display:none!important;width:0!important;height:0!important;" aria-hidden="true"></div>
+    <div id="nl-hud-frame" style="display:none!important;width:0!important;height:0!important;" aria-hidden="true"></div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
