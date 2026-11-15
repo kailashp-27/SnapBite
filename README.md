@@ -60,7 +60,7 @@ The offline library contains **5,522 entries**: 5,439 USDA nutrition records, 20
 | 2. Local data | IndexedDB foodLibrary/dailyLogs, water, goals, streak calculation, body weight tracking, CSV & JSON export/backup, validated imports, nutrition snapshots, Open Food Facts barcode caching, micronutrients (fiber/sodium) | Broader Indian recipe validation |
 | 3. Tracking UI | Dark responsive dashboard, bottom navigation, streak & consistency widget, repeat yesterday's meal, recent foods tab, portions/weights, daily macros, water, weekly insights & calorie correlation, custom foods | More accessibility and usability testing |
 | 4. Snap | On-device single-dish model, mixed-meal segmentation/calibration, barcode scanner (UPC/EAN), low-confidence non-food guard, Idli/Parotta shortcuts | Weighed-meal mass regressor, more Indian trained classes |
-| 5. Deployment | Production build, Netlify configuration, versioned model asset filenames | GitHub/Netlify publishing and live device QA |
+| 5. Deployment | Production build, Netlify live deployment (snapbite-app.netlify.app), GitHub publishing, versioned model asset filenames | Live physical device testing |
 
 ## Architecture
 
@@ -110,9 +110,9 @@ Model assets use content-based filenames and SHA-256 verification. A changed mod
 
 ## Netlify
 
-The mixed-meal build additionally requires the two committed source weights listed in `ml/mixed-models.json`. `scripts/package-mixed-models.mjs` verifies and packages them during prebuild.
+SnapBite is live at **[https://snapbite-app.netlify.app](https://snapbite-app.netlify.app)**.
 
-Push this folder to GitHub and import that repository into Netlify. Build command is `npm run build`; publish directory is `dist`, already configured in `netlify.toml`. Keep `ml/models/snapbite-v1.onnx` in the repository; runtime/generated public assets are recreated from npm dependencies during prebuild.
+The mixed-meal build additionally requires the two committed source weights listed in `ml/mixed-models.json`. `scripts/package-mixed-models.mjs` verifies and packages them during prebuild. Build command is `npm run build`; publish directory is `dist`, configured in `netlify.toml`. Runtime/generated public assets are recreated from npm dependencies during prebuild.
 
 The PWA needs HTTPS (localhost is allowed). Open online once, enable the scanner, install through the browser menu, then check airplane-mode reload and scanning on physical phones. Service-worker development mode is disabled intentionally. Cache headers do not reserve browser storage indefinitely.
 
