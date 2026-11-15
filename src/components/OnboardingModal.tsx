@@ -1,7 +1,8 @@
 import {useState, type FormEvent} from 'react';
-import {Check, Download, ShieldCheck, Sparkles, UtensilsCrossed} from 'lucide-react';
+import {Check, Download, ShieldCheck, Sparkles} from 'lucide-react';
 import type {Goals} from '../types';
 import Modal from './Modal';
+import Logo from './Logo';
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>;
@@ -86,7 +87,7 @@ export default function OnboardingModal({initialGoals, installPrompt, onSave}: O
               marginBottom: '12px'
             }}
           >
-            <UtensilsCrossed size={28}/>
+            <Logo size={28}/>
           </span>
           <h3 style={{fontSize: '18px', fontWeight: 600, color: '#f0f4ea'}}>
             Let’s personalize your food diary

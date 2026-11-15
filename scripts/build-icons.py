@@ -1,0 +1,101 @@
+import os
+from playwright.sync_api import sync_playwright
+
+SVG_CONTENT = '''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#162217"/>
+      <stop offset="50%" stop-color="#101811"/>
+      <stop offset="100%" stop-color="#0a100b"/>
+    </linearGradient>
+    <linearGradient id="limeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d6ff73"/>
+      <stop offset="50%" stop-color="#bbf358"/>
+      <stop offset="100%" stop-color="#93e622"/>
+    </linearGradient>
+    <linearGradient id="bracketGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#cbf76c"/>
+      <stop offset="100%" stop-color="#8fe41e"/>
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c3f66b" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#c3f66b" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <mask id="biteMask">
+      <rect width="512" height="512" fill="#ffffff"/>
+      <!-- Crisp circular bite cutout in upper right -->
+      <circle cx="340" cy="184" r="54" fill="#000000"/>
+    </mask>
+  </defs>
+
+  <!-- Background squircle -->
+  <rect width="512" height="512" rx="124" fill="url(#bgGrad)"/>
+  <rect x="6" y="6" width="500" height="500" rx="118" fill="none" stroke="#253825" stroke-width="4"/>
+
+  <!-- Radial ambient glow behind plate -->
+  <circle cx="256" cy="256" r="160" fill="url(#glowGrad)"/>
+
+  <!-- Camera Viewfinder Corner Brackets (The "Snap") -->
+  <g fill="none" stroke="url(#bracketGrad)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" filter="url(#subtleGlow)">
+    <!-- Top-Left -->
+    <path d="M 104 176 L 104 130 A 26 26 0 0 1 130 104 L 176 104"/>
+    <!-- Top-Right -->
+    <path d="M 336 104 L 382 104 A 26 26 0 0 1 408 130 L 408 176"/>
+    <!-- Bottom-Left -->
+    <path d="M 104 336 L 104 382 A 26 26 0 0 0 130 408 L 176 408"/>
+    <!-- Bottom-Right -->
+    <path d="M 336 408 L 382 408 A 26 26 0 0 0 408 382 L 408 336"/>
+  </g>
+
+  <!-- Food Plate with Bite Cutout (The "Bite") -->
+  <g mask="url(#biteMask)">
+    <!-- Main Food/Plate Silhouette -->
+    <circle cx="256" cy="256" r="114" fill="url(#limeGrad)"/>
+    <!-- Inset Rim Arc for depth -->
+    <circle cx="256" cy="256" r="90" fill="none" stroke="#121a12" stroke-width="5" opacity="0.2"/>
+  </g>
+
+  <!-- Center Camera Aperture / Lens Core -->
+  <circle cx="256" cy="256" r="46" fill="#111812"/>
+  <circle cx="256" cy="256" r="38" fill="none" stroke="#bbf358" stroke-width="4.5"/>
+
+  <!-- Lens reflection glints -->
+  <circle cx="244" cy="244" r="11" fill="#e8ff9e" opacity="0.95"/>
+  <circle cx="270" cy="270" r="4.5" fill="#e8ff9e" opacity="0.75"/>
+
+  <!-- Fresh Nutrition Sprout / Leaf at Top -->
+  <path d="M 238 136 C 238 98 272 90 290 86 C 290 108 278 132 250 141 Z" fill="#d6ff73"/>
+  <path d="M 244 133 C 255 120 270 106 284 94" stroke="#111812" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.4"/>
+</svg>'''
+
+def main():
+    # Save SVG
+    with open('public/icon.svg', 'w', encoding='utf-8') as f:
+        f.write(SVG_CONTENT)
+    print("Saved public/icon.svg")
+
+    # Render PNGs using Playwright with installed Edge browser
+    with sync_playwright() as p:
+        edge_path = r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
+        browser = p.chromium.launch(executable_path=edge_path)
+        
+        # 512x512
+        page = browser.new_page(viewport={"width": 512, "height": 512})
+        page.set_content(f'<!DOCTYPE html><html><body style="margin:0;padding:0;overflow:hidden;background:transparent;">{SVG_CONTENT}</body></html>')
+        page.screenshot(path='public/icon-512.png', omit_background=True)
+        print("Generated public/icon-512.png")
+
+        # 192x192
+        page_192 = browser.new_page(viewport={"width": 192, "height": 192})
+        page_192.set_content(f'<!DOCTYPE html><html><body style="margin:0;padding:0;overflow:hidden;background:transparent;">{SVG_CONTENT}</body></html>')
+        page_192.screenshot(path='public/icon-192.png', omit_background=True)
+        print("Generated public/icon-192.png")
+
+        browser.close()
+
+if __name__ == '__main__':
+    main()

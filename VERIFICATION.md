@@ -1,5 +1,13 @@
 # Verification — October 25, 2026
 
+## November 15: Custom app logo, final verification, and Netlify deployment
+
+- **78 tests in 19 suites pass**, plus production TypeScript/Vite/PWA build (15 shell entries, 3455.52 KiB).
+- **Custom App Logo (Symbol-Only):** Designed a sleek, modern visual mark combining camera focus brackets (the "Snap") framing a fresh circular dish with a crisp bite cutout (the "Bite"), an inner camera aperture/lens, and a nutrition sprout. Explicitly designed with zero typography/app name in the graphic.
+- **Cross-Platform Asset Generation:** Rendered vector `public/icon.svg` and pixel-perfect high-resolution raster icons `public/icon-512.png` and `public/icon-192.png`. Created reusable React SVG component `src/components/Logo.tsx` with unit test suite `src/components/Logo.test.tsx` verifying clean rendering across `mark` and `emblem` modes without text elements. Integrated into sidebar branding, mobile navigation, and onboarding dialogs.
+- **Production Build & Verification:** TypeScript compilation and Vite build verified. Precaches 15 app-shell entries with PWA service worker and manifest.
+- **Netlify Deployment:** Connected to Netlify under project `snapbite-app` (URL: `https://snapbite-app.netlify.app`).
+
 ## November 15: CSV export, repeat meals, recent foods, weight tracking, micronutrients, streaks & onboarding
 
 - **75 tests in 18 suites pass**, plus production TypeScript/Vite/PWA build (15 shell entries, 3299.05 KiB).

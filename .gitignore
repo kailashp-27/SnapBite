@@ -9,6 +9,7 @@ coverage/
 .npm-downloads/
 .ml-work/
 __pycache__/
+.netlify/
 public/models/snapbite-v1/runtime/
 public/models/snapbite-v1/model.*.onnx
 public/models/snapbite-v1/manifest.json

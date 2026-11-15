@@ -9,7 +9,8 @@ import StreakWidget from './components/StreakWidget';
 import OnboardingModal from './components/OnboardingModal';
 import {useEffect, useState} from 'react';
 import {useLiveQuery} from 'dexie-react-hooks';
-import {BarChart3, Check, CheckCheck, ChevronLeft, ChevronRight, CircleHelp, Coffee, Download, Droplets, Flame, Home, Leaf, Minus, Moon, Plus, RotateCcw, ScanLine, Settings2, ShieldCheck, Sun, Utensils, UtensilsCrossed, X} from 'lucide-react';
+import {BarChart3, Check, CheckCheck, ChevronLeft, ChevronRight, CircleHelp, Coffee, Download, Droplets, Flame, Home, Leaf, Minus, Moon, Plus, RotateCcw, ScanLine, Settings2, ShieldCheck, Sun, Utensils, X} from 'lucide-react';
+import Logo from './components/Logo';
 import {copyMealLogs, db, initializeLibrary, saveGoals, setWater} from './db';
 import {dateKey, defaultGoals, meals, shiftDate, sumNutrition, type Food, type Goals, type Meal, type Tab} from './types';
 import {computeStreakStats} from './streak';
@@ -80,7 +81,7 @@ export default function App() {
 
   return <div className="app-shell">
     <aside className="sidebar">
-      <a className="brand" href="#" onClick={e => {e.preventDefault(); setTab('dashboard');}}><span className="brand-mark"><UtensilsCrossed size={23}/></span>snapbite<span className="brand-dot">.</span></a>
+      <a className="brand" href="#" onClick={e => {e.preventDefault(); setTab('dashboard');}}><span className="brand-mark"><Logo size={24}/></span>snapbite<span className="brand-dot">.</span></a>
       
       <nav aria-label="Main navigation">{navigation.map(({id, label, icon: Icon}) => <button key={id} className={`nav-item ${tab === id ? 'active' : ''}`} onClick={() => setTab(id)}><Icon size={20}/><span>{label}</span>{id === 'scanner' && <span className="nav-new">AI</span>}</button>)}</nav>
       <div className="sidebar-bottom">
@@ -89,7 +90,7 @@ export default function App() {
     </aside>
 
     <div className="main-shell">
-      <header className="topbar"><div className="breadcrumb">Your space <ChevronRight size={14}/><span>{navigation.find(item => item.id === tab)?.label}</span></div><a className="mobile-brand" href="#" onClick={e => {e.preventDefault(); setTab('dashboard');}}><UtensilsCrossed size={21}/>snapbite.</a><div className="topbar-right">{installPrompt && <button className="primary-button" style={{fontSize:'10px',padding:'6px 11px',borderRadius:'6px'}} onClick={async()=>{await installPrompt.prompt();const choice=await installPrompt.userChoice;if(choice.outcome==='accepted')setInstallPrompt(null);}}><Download size={14}/> Install</button>}<span className="connection"><span className={online ? 'status-dot' : 'status-dot offline'}/>{online ? 'Local-first, always' : 'You’re offline'}</span></div></header>
+      <header className="topbar"><div className="breadcrumb">Your space <ChevronRight size={14}/><span>{navigation.find(item => item.id === tab)?.label}</span></div><a className="mobile-brand" href="#" onClick={e => {e.preventDefault(); setTab('dashboard');}}><Logo size={22}/>snapbite.</a><div className="topbar-right">{installPrompt && <button className="primary-button" style={{fontSize:'10px',padding:'6px 11px',borderRadius:'6px'}} onClick={async()=>{await installPrompt.prompt();const choice=await installPrompt.userChoice;if(choice.outcome==='accepted')setInstallPrompt(null);}}><Download size={14}/> Install</button>}<span className="connection"><span className={online ? 'status-dot' : 'status-dot offline'}/>{online ? 'Local-first, always' : 'You’re offline'}</span></div></header>
       <main>
         {error && <div role="alert" className="error-banner">{error}<button onClick={() => location.reload()}>Retry</button></div>}
         {update && <div className="notice">A fresh version is ready. Close all SnapBite tabs and reopen to update.<button aria-label="Dismiss update notice" onClick={() => setUpdate(false)}><X size={16}/></button></div>}
