@@ -1,5 +1,16 @@
 # Verification — October 25, 2026
 
+## November 15: CSV export, repeat meals, recent foods, weight tracking, micronutrients, streaks & onboarding
+
+- **75 tests in 18 suites pass**, plus production TypeScript/Vite/PWA build (15 shell entries, 3299.05 KiB).
+- **CSV Export:** Added `src/export-csv.ts` and test suite `src/export-csv.test.ts`. Generates standard CSV with UTF-8 BOM (`\uFEFF`) and RFC-compliant quote escaping for seamless opening in Microsoft Excel, Apple Numbers, and Google Sheets. Accessible via Settings with one tap.
+- **Repeat Yesterday's Meal:** Added `copyMealLogs` in `src/db.ts` and "Repeat yesterday's" action button directly in each meal card on the diary. Duplicates the meal's foods, portions, and exact nutrition snapshots into today's log.
+- **Recent Foods Quick Tab:** Added "Recent" category filter to `src/components/FoodPicker.tsx`. Automatically queries recent logs to extract the user's top 30 most-frequently logged foods for rapid 1-tap logging.
+- **Body Weight Tracking & Energy Correlation:** Added `setWeight` in `src/db.ts` and an interactive Body Weight card in `src/components/Insights.tsx`. Displays latest recorded weight, 7-day weight change with trending arrows, an inline quick-entry input, and calorie balance correlation against target intake.
+- **Micronutrient Tracking:** Extended `Food` and `DailyLog` schemas in `src/types.ts` with optional `fiber` (g), `sugar` (g), and `sodium` (mg). Updated `sumNutrition` to aggregate fiber and sodium. Added optional micronutrient input fields to `src/components/CustomFoodForm.tsx`.
+- **First-Time Onboarding Flow:** Added `OnboardingModal.tsx` for new users to configure their display name, select dietary goal presets (Balanced, Muscle Gain, Fat Loss), fine-tune target macros, and trigger PWA installation.
+- **Goal Streak & Consistency Widget:** Added `StreakWidget.tsx` and `streak.ts` on the main dashboard displaying current streak, best streak, 7-day circular status row, and week-over-week completion rate.
+
 ## November 15: Barcode scanner, non-food rejection guard, PWA install prompt & shortcuts
 
 - **61 tests in 14 suites pass**, plus production TypeScript/Vite/PWA build (15 shell entries, 3280.22 KiB).

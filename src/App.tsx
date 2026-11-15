@@ -9,8 +9,8 @@ import StreakWidget from './components/StreakWidget';
 import OnboardingModal from './components/OnboardingModal';
 import {useEffect, useState} from 'react';
 import {useLiveQuery} from 'dexie-react-hooks';
-import {BarChart3, Check, CheckCheck, ChevronLeft, ChevronRight, CircleHelp, Coffee, Download, Droplets, Flame, Home, Leaf, Minus, Moon, Plus, ScanLine, Settings2, ShieldCheck, Sun, Utensils, UtensilsCrossed, X} from 'lucide-react';
-import {db, initializeLibrary, saveGoals, setWater} from './db';
+import {BarChart3, Check, CheckCheck, ChevronLeft, ChevronRight, CircleHelp, Coffee, Download, Droplets, Flame, Home, Leaf, Minus, Moon, Plus, RotateCcw, ScanLine, Settings2, ShieldCheck, Sun, Utensils, UtensilsCrossed, X} from 'lucide-react';
+import {copyMealLogs, db, initializeLibrary, saveGoals, setWater} from './db';
 import {dateKey, defaultGoals, meals, shiftDate, sumNutrition, type Food, type Goals, type Meal, type Tab} from './types';
 import {computeStreakStats} from './streak';
 
@@ -38,6 +38,8 @@ export default function App() {
   const [update, setUpdate] = useState(false);
   const [installPrompt, setInstallPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const logs = useLiveQuery(() => db.dailyLogs.where('date').equals(date).sortBy('createdAt'), [date]) ?? [];
+  const yesterdayKey = shiftDate(date, -1);
+  const yesterdayLogs = useLiveQuery(() => db.dailyLogs.where('date').equals(yesterdayKey).toArray(), [yesterdayKey]) ?? [];
   const storedGoals = useLiveQuery(() => db.preferences.get('goals'));
   const goals = storedGoals?.value ?? defaultGoals;
   const onboardedPref = useLiveQuery(() => db.preferences.get('onboarded'));
@@ -66,6 +68,15 @@ export default function App() {
     await db.preferences.put({id: 'onboarded', value: true as unknown as Goals});
     notify(`Welcome to SnapBite, ${newGoals.name.split(' ')[0]}!`);
   };
+  const copyYesterday = async (meal: Meal) => {
+    try {
+      const count = await copyMealLogs(yesterdayKey, date, meal);
+      if (count > 0) notify(`Copied ${count} ${count === 1 ? 'food' : 'foods'} from yesterday’s ${meal.toLowerCase()}`);
+      else notify(`No foods logged in yesterday’s ${meal.toLowerCase()}`);
+    } catch {
+      notify('Could not copy yesterday’s meal.');
+    }
+  };
 
   return <div className="app-shell">
     <aside className="sidebar">
@@ -92,7 +103,8 @@ export default function App() {
 
           <div className="content-columns"><section className="meals-section"><div className="section-heading"><div><h2>Your meals <span className="count-pill">{logs.length} {logs.length === 1 ? "food" : "foods"}</span></h2></div><button className="text-button" onClick={() => openAdd('Snacks')}><Plus size={16}/> Add food</button></div><div className={`meal-grid ${tab === 'diary' ? 'diary-grid' : ''}`}>{meals.map(meal => {
             const entries = logs.filter(log => log.meal === meal), kcal = entries.reduce((sum, log) => sum + log.calories, 0), Icon = mealIcons[meal];
-            return <article className="card meal-card" key={meal}><div className="meal-header"><span className={`meal-icon ${meal.toLowerCase()}`}><Icon size={19}/></span><div><h3>{meal}</h3><span>{`${number(kcal)} kcal`}</span></div><button className="add-round" aria-label={`Add food to ${meal}`} onClick={() => openAdd(meal)}><Plus size={18}/></button></div>{entries.length > 0 ? <ul className="food-entries">{entries.map(entry => <li key={entry.id}><span className="food-emoji">{entry.emoji}</span><div><strong>{entry.name}</strong><small>{entry.photoEstimate ? `Estimated · ${entry.photoEstimate.description}` : <>{entry.grams ? `${number(entry.grams)} g · ` : ""}{Number(entry.portions.toFixed(2))} × {entry.serving}</>}</small></div><span className="food-kcal">{number(entry.calories)}<small>kcal</small></span><button className="delete-food" aria-label={`Remove ${entry.name}`} onClick={() => run(() => db.dailyLogs.delete(entry.id!), 'Food removed')}><X size={14}/></button></li>)}</ul> : <button className="empty-meal" onClick={() => openAdd(meal)}><span className="empty-plate"><Utensils size={23}/></span><strong>Add {meal.toLowerCase()}</strong></button>}<div className="meal-footer"><span>P <b>{number(sumNutrition(entries).protein)}g</b></span><span>C <b>{number(sumNutrition(entries).carbs)}g</b></span><span>F <b>{number(sumNutrition(entries).fat)}g</b></span><span>{entries.length ? `${entries.length} item${entries.length > 1 ? 's' : ''}` : 'Not logged yet'}</span></div></article>;
+            const yesterdayEntries = yesterdayLogs.filter(log => log.meal === meal);
+            return <article className="card meal-card" key={meal}><div className="meal-header"><span className={`meal-icon ${meal.toLowerCase()}`}><Icon size={19}/></span><div><h3>{meal}</h3><span>{`${number(kcal)} kcal`}</span></div><div style={{display:'flex',gap:'6px',marginLeft:'auto'}}>{yesterdayEntries.length > 0 && <button className="icon-button" title={`Repeat yesterday’s ${meal.toLowerCase()} (${yesterdayEntries.length} items)`} aria-label={`Repeat yesterday’s ${meal.toLowerCase()}`} onClick={() => void copyYesterday(meal)} style={{padding:'4px',color:'#b0cd8b'}}><RotateCcw size={15}/></button>}<button className="add-round" aria-label={`Add food to ${meal}`} onClick={() => openAdd(meal)}><Plus size={18}/></button></div></div>{entries.length > 0 ? <ul className="food-entries">{entries.map(entry => <li key={entry.id}><span className="food-emoji">{entry.emoji}</span><div><strong>{entry.name}</strong><small>{entry.photoEstimate ? `Estimated · ${entry.photoEstimate.description}` : <>{entry.grams ? `${number(entry.grams)} g · ` : ""}{Number(entry.portions.toFixed(2))} × {entry.serving}</>}</small></div><span className="food-kcal">{number(entry.calories)}<small>kcal</small></span><button className="delete-food" aria-label={`Remove ${entry.name}`} onClick={() => run(() => db.dailyLogs.delete(entry.id!), 'Food removed')}><X size={14}/></button></li>)}</ul> : <div style={{display:'flex',flexDirection:'column',alignItems:'center',width:'100%',flex:1}}><button className="empty-meal" onClick={() => openAdd(meal)}><span className="empty-plate"><Utensils size={23}/></span><strong>Add {meal.toLowerCase()}</strong></button>{yesterdayEntries.length > 0 && <button type="button" className="text-button" style={{fontSize:'9px',marginBottom:'12px',display:'inline-flex',alignItems:'center',gap:'5px'}} onClick={() => void copyYesterday(meal)}><RotateCcw size={12}/> Repeat yesterday’s ({yesterdayEntries.length} {yesterdayEntries.length === 1 ? 'item' : 'items'})</button>}</div>}<div className="meal-footer"><span>P <b>{number(sumNutrition(entries).protein)}g</b></span><span>C <b>{number(sumNutrition(entries).carbs)}g</b></span><span>F <b>{number(sumNutrition(entries).fat)}g</b></span><span>{entries.length ? `${entries.length} item${entries.length > 1 ? 's' : ''}` : 'Not logged yet'}</span></div></article>;
           })}</div></section>
           <aside className="right-column">{tab === 'dashboard' && <StreakWidget stats={streakStats}/>}<div className="card water-card"><div className="card-title"><h2><Droplets size={18}/> Stay hydrated</h2><span className="tiny-label">250 ML / GLASS</span></div><div className="water-count"><strong>{water?.water ?? 0}<span> / {goals.water}</span></strong><span>glasses</span></div><div className="water-glasses">{Array.from({length: Math.min(goals.water, 12)}, (_, index) => <button key={index} className={`glass ${(water?.water ?? 0) > index ? 'filled' : ''}`} aria-label={`Set water to ${index + 1} ${index === 0 ? "glass" : "glasses"}`} onClick={() => run(() => db.days.put({date, water: index + 1}))}><svg viewBox="0 0 24 30" aria-hidden="true"><path d="M3 3h18l-3 24H6Z"/><path className="water-fill" d="m5 12 3 1 4-2 4 2 3-1-2 13H7Z"/></svg></button>)}</div><div className="water-actions"><button aria-label="Remove one glass" className="secondary-button" disabled={!water?.water} onClick={() => run(() => setWater(date, -1))}><Minus size={16}/></button><button className="water-add" onClick={() => run(() => setWater(date, 1), 'Water logged')}><Plus size={16}/> Add a glass</button></div></div>
           </aside></div>

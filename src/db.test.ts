@@ -1,6 +1,6 @@
 import 'fake-indexeddb/auto';
 import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest';
-import {addFood, addPhotoMeal, db, initializeLibrary, setWater, validateFoods} from './db';
+import {addFood, addPhotoMeal, copyMealLogs, db, initializeLibrary, setWater, setWeight, validateFoods} from './db';
 import {photoPortion} from './portion-estimates';
 import {restoreBackup, validateBackup} from './backup';
 import {dateKey, shiftDate, sumNutrition, type Food} from './types';
@@ -18,6 +18,21 @@ describe('food diary persistence', () => {
     expect(entries[0].protein).toBe(6.75); expect(sumNutrition(entries).carbs).toBe(43.5);
     expect(entries[0].grams).toBe(150);
     expect(await db.dailyLogs.where('date').equals('2026-10-23').count()).toBe(0);
+  });
+  it('copies past meal logs atomically to a new date', async () => {
+    await db.foodLibrary.put(food);
+    await addFood(food, 1, '2026-10-24', 'Breakfast');
+    const copied = await copyMealLogs('2026-10-24', '2026-10-25', 'Breakfast');
+    expect(copied).toBe(1);
+    const copiedLogs = await db.dailyLogs.where('date').equals('2026-10-25').toArray();
+    expect(copiedLogs).toHaveLength(1);
+    expect(copiedLogs[0].foodId).toBe('idli');
+    expect(copiedLogs[0].meal).toBe('Breakfast');
+  });
+  it('updates body weight on a given date', async () => {
+    await setWeight('2026-10-24', 72.5);
+    const day = await db.days.get('2026-10-24');
+    expect(day?.weight).toBe(72.5);
   });
   it('rejects invalid portions without writing a log', async () => {
     for (const amount of [0, -1, NaN, Infinity, 101]) await expect(addFood(food, amount, '2026-10-24', 'Lunch')).rejects.toThrow();

@@ -6,11 +6,26 @@ import type {Food} from '../types';
 export default function CustomFoodForm({initialName, onSave, onCancel}: {initialName: string; onSave: (food: Food) => void; onCancel: () => void}) {
   const [name, setName] = useState(initialName), [serving, setServing] = useState('1 serving');
   const [values, setValues] = useState({grams: '', calories: '', protein: '', carbs: '', fat: ''});
+  const [micros, setMicros] = useState({fiber: '', sodium: ''});
   const [busy, setBusy] = useState(false), [error, setError] = useState('');
   async function submit(event: FormEvent) {
     event.preventDefault(); if (busy) return; setBusy(true); setError('');
     try {
-      const food = validateFoods([{id: `custom:${crypto.randomUUID()}`, name: name.trim(), category: 'Custom', serving: serving.trim(), grams: Number(values.grams), calories: Number(values.calories), protein: Number(values.protein), carbs: Number(values.carbs), fat: Number(values.fat), emoji: '🍽️', source: 'Nutrition entered by you; per the serving shown.'}])[0];
+      const food = validateFoods([{
+        id: `custom:${crypto.randomUUID()}`,
+        name: name.trim(),
+        category: 'Custom',
+        serving: serving.trim(),
+        grams: Number(values.grams),
+        calories: Number(values.calories),
+        protein: Number(values.protein),
+        carbs: Number(values.carbs),
+        fat: Number(values.fat),
+        fiber: micros.fiber ? Number(micros.fiber) : undefined,
+        sodium: micros.sodium ? Number(micros.sodium) : undefined,
+        emoji: '🍽️',
+        source: 'Nutrition entered by you; per the serving shown.'
+      }])[0];
       await db.foodLibrary.add(food); onSave(food);
     } catch(error) {setError(error instanceof Error ? error.message : 'The food could not be saved.');} finally {setBusy(false);}
   }
@@ -20,6 +35,7 @@ export default function CustomFoodForm({initialName, onSave, onCancel}: {initial
     <label>Food name<input value={name} maxLength={100} required onChange={event => setName(event.target.value)}/></label>
     <label>Serving description<input value={serving} maxLength={80} required onChange={event => setServing(event.target.value)}/></label>
     <div className="form-row">{(['grams', 'calories', 'protein', 'carbs', 'fat'] as const).map(key => <label key={key}>{key === 'grams' ? 'Serving weight (g)' : `${key[0].toUpperCase() + key.slice(1)} (${key === 'calories' ? 'kcal' : 'g'})`}<input type="number" min={key === 'grams' ? '.1' : '0'} max="100000" step=".1" required value={values[key]} onChange={event => setValues({...values, [key]: event.target.value})}/></label>)}</div>
+    <details style={{margin: '14px 0', fontSize: '11px', color: '#a6b299'}}><summary style={{cursor: 'pointer', color: 'var(--lime)'}}>Optional micronutrients (fiber, sodium)</summary><div className="form-row" style={{marginTop: '10px'}}><label>Fiber (g)<input type="number" min="0" max="1000" step="0.1" value={micros.fiber} onChange={e => setMicros({...micros, fiber: e.target.value})}/></label><label>Sodium (mg)<input type="number" min="0" max="100000" step="1" value={micros.sodium} onChange={e => setMicros({...micros, sodium: e.target.value})}/></label></div></details>
     {error && <p className="over-text field-hint" role="alert">{error}</p>}
     <button className="primary-button full" disabled={busy}>{busy ? <LoaderCircle className="spin" size={17}/> : <Check size={17}/>} Save food & choose portion</button>
   </form>;

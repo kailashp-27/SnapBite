@@ -30,6 +30,9 @@ export function validateFoods(data: unknown): Food[] {
     for (const key of ['grams', 'calories', 'protein', 'carbs', 'fat'] as const) {
       if (typeof food[key] !== 'number' || !Number.isFinite(food[key]) || food[key] < 0 || (key === 'grams' && food[key] === 0)) throw new Error(`Food ${index + 1} has invalid ${key}.`);
     }
+    for (const key of ['fiber', 'sugar', 'sodium'] as const) {
+      if (food[key] !== undefined && (typeof food[key] !== 'number' || !Number.isFinite(food[key]) || food[key]! < 0)) throw new Error(`Food ${index + 1} has invalid ${key}.`);
+    }
     if (food.aliases !== undefined && (!Array.isArray(food.aliases) || food.aliases.some(alias => typeof alias !== 'string'))) throw new Error(`Food ${index + 1} has invalid aliases.`);
     if (food.portionOptions !== undefined && (!Array.isArray(food.portionOptions) || food.portionOptions.length > 50 || food.portionOptions.some(portion => !portion || typeof portion.label !== 'string' || !Number.isFinite(portion.grams) || portion.grams <= 0))) throw new Error(`Food ${index + 1} has invalid serving weights.`);
     ids.add(food.id); return food;
@@ -65,7 +68,22 @@ export async function initializeLibrary() {
 export async function addFood(food: Food, portions: number, date: string, meal: Meal) {
   if (!Number.isFinite(portions) || portions <= 0 || portions > 100) throw new Error('Enter a portion between 0.01 and 100.');
   return db.dailyLogs.add({date, meal, foodId: food.id, name: food.name, emoji: food.emoji, serving: food.serving, portions, grams: food.grams * portions,
-    calories: food.calories * portions, protein: food.protein * portions, carbs: food.carbs * portions, fat: food.fat * portions, createdAt: Date.now()});
+    calories: food.calories * portions, protein: food.protein * portions, carbs: food.carbs * portions, fat: food.fat * portions,
+    fiber: food.fiber !== undefined ? food.fiber * portions : undefined,
+    sugar: food.sugar !== undefined ? food.sugar * portions : undefined,
+    sodium: food.sodium !== undefined ? food.sodium * portions : undefined,
+    createdAt: Date.now()});
+}
+export async function copyMealLogs(sourceDate: string, targetDate: string, meal: Meal): Promise<number> {
+  const sourceLogs = await db.dailyLogs.where('date').equals(sourceDate).filter(log => log.meal === meal).toArray();
+  if (!sourceLogs.length) return 0;
+  const rows = sourceLogs.map(log => ({
+    date: targetDate, meal, foodId: log.foodId, name: log.name, emoji: log.emoji, serving: log.serving, portions: log.portions,
+    grams: log.grams, calories: log.calories, protein: log.protein, carbs: log.carbs, fat: log.fat, createdAt: Date.now(),
+    photoEstimate: log.photoEstimate
+  }));
+  await db.dailyLogs.bulkAdd(rows);
+  return rows.length;
 }
 export async function addPhotoMeal(items:{food:Food;estimate:NonNullable<import('./types').DailyLog['photoEstimate']>}[],date:string,meal:Meal){
   if(!items.length||items.length>20)throw Error('Review the foods before logging.');
@@ -80,7 +98,13 @@ export async function addPhotoMeal(items:{food:Food;estimate:NonNullable<import(
 }
 export async function setWater(date: string, delta: number) {
   await db.transaction('rw', db.days, async () => {
-    const day = await db.days.get(date); await db.days.put({date, water: Math.max(0, Math.min(40, (day?.water ?? 0) + delta))});
+    const day = await db.days.get(date); await db.days.put({date, water: Math.max(0, Math.min(40, (day?.water ?? 0) + delta)), weight: day?.weight});
+  });
+}
+export async function setWeight(date: string, weight: number | undefined) {
+  await db.transaction('rw', db.days, async () => {
+    const day = await db.days.get(date);
+    await db.days.put({date, water: day?.water ?? 0, weight: weight !== undefined && Number.isFinite(weight) ? Math.round(weight * 10) / 10 : undefined});
   });
 }
 export async function saveGoals(goals: Goals) {

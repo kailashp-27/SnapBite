@@ -6,15 +6,21 @@ export interface Food {
   source: string; aliases?: string[];
   nutritionKind?: 'usda' | 'reference-recipe';
   portionOptions?: {label: string; grams: number}[];
+  fiber?: number;
+  sugar?: number;
+  sodium?: number;
 }
 export interface DailyLog {
   id?: number; date: string; meal: Meal; foodId: string; name: string; emoji: string;
   serving: string; portions: number; grams?: number; calories: number; protein: number; carbs: number; fat: number;
   createdAt: number;
   photoEstimate?: import('./portion-estimates').PhotoEstimate;
+  fiber?: number;
+  sugar?: number;
+  sodium?: number;
 }
 export interface Goals { name: string; calories: number; protein: number; carbs: number; fat: number; water: number; }
-export interface Day { date: string; water: number; }
+export interface Day { date: string; water: number; weight?: number; }
 export interface Preferences { id: string; value: Goals; }
 export const defaultGoals: Goals = {name: '', calories: 2200, protein: 120, carbs: 275, fat: 73, water: 8};
 export const meals: Meal[] = ['Breakfast', 'Lunch', 'Dinner', 'Snacks'];
@@ -24,4 +30,11 @@ export function dateKey(date = new Date()): string {
 export function shiftDate(key: string, amount: number): string {
   const date = new Date(`${key}T12:00:00`); date.setDate(date.getDate() + amount); return dateKey(date);
 }
-export const sumNutrition = (logs: DailyLog[]) => logs.reduce((total, log) => ({calories: total.calories + log.calories, protein: total.protein + log.protein, carbs: total.carbs + log.carbs, fat: total.fat + log.fat}), {calories: 0, protein: 0, carbs: 0, fat: 0});
+export const sumNutrition = (logs: DailyLog[]) => logs.reduce((total, log) => ({
+  calories: total.calories + log.calories,
+  protein: total.protein + log.protein,
+  carbs: total.carbs + log.carbs,
+  fat: total.fat + log.fat,
+  fiber: (total.fiber ?? 0) + (log.fiber ?? 0),
+  sodium: (total.sodium ?? 0) + (log.sodium ?? 0)
+}), {calories: 0, protein: 0, carbs: 0, fat: 0, fiber: 0, sodium: 0});

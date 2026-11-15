@@ -1,6 +1,7 @@
+import {useState} from 'react';
 import {useLiveQuery} from 'dexie-react-hooks';
-import {ChartNoAxesColumnIncreasing, Flame, Leaf, Target} from 'lucide-react';
-import {db} from '../db';
+import {ChartNoAxesColumnIncreasing, Check, Flame, Leaf, Scale, Target, TrendingDown, TrendingUp} from 'lucide-react';
+import {db, setWeight} from '../db';
 import {shiftDate, type Goals} from '../types';
 import {weeklyInsights} from '../insights-data';
 import {formatDate, number} from '../format';
@@ -8,6 +9,26 @@ import {formatDate, number} from '../format';
 export default function Insights({date, goals}: {date: string; goals: Goals}) {
   const start = shiftDate(date, -6);
   const logs = useLiveQuery(() => db.dailyLogs.where('date').between(start, date, true, true).toArray(), [start, date]);
+  const daysData = useLiveQuery(() => db.days.toArray()) ?? [];
+  const todayRecord = daysData.find(d => d.date === date);
+  const [weightInput, setWeightInput] = useState('');
+  const [savedWeight, setSavedWeight] = useState(false);
+
+  const weightRecords = daysData.filter(d => d.weight !== undefined).sort((a,b) => b.date.localeCompare(a.date));
+  const latestWeight = todayRecord?.weight ?? weightRecords[0]?.weight;
+  const previousWeight = weightRecords.find(d => d.date <= shiftDate(date, -6))?.weight ?? weightRecords[1]?.weight;
+  const weightDelta = latestWeight !== undefined && previousWeight !== undefined ? Math.round((latestWeight - previousWeight) * 10) / 10 : null;
+
+  async function handleSaveWeight(e: React.FormEvent) {
+    e.preventDefault();
+    const val = Number(weightInput);
+    if (!Number.isFinite(val) || val <= 0) return;
+    await setWeight(date, val);
+    setWeightInput('');
+    setSavedWeight(true);
+    setTimeout(() => setSavedWeight(false), 2500);
+  }
+
   const insight = weeklyInsights(logs ?? [], date);
   const {days, averageCalories, averageProtein, largestMeal} = insight;
   const proteinPercent = averageProtein === null ? null : averageProtein / goals.protein * 100;
@@ -52,6 +73,21 @@ export default function Insights({date, goals}: {date: string; goals: Goals}) {
       <div className="card-title"><h2>Weekly calories</h2><span className="subtle-chip">LAST 7 DAYS</span></div>
       <p>{formatDate(start, {month: 'short', day: 'numeric'})} – {formatDate(date, {month: 'short', day: 'numeric'})}</p>
       <div className="week-chart"><div className="goal-line" style={{bottom: `${(goals.calories / max) * 190 + 32}px`}}><span>Goal {number(goals.calories)}</span></div>{days.map(day => <div className="chart-column" key={day.key} role="img" aria-label={`${formatDate(day.key, {weekday: 'long', month: 'short', day: 'numeric'})}: ${day.logged ? `${number(day.calories)} kcal` : 'No food logged'}`}><span>{day.logged ? number(day.calories) : '—'}</span><div className={`chart-bar ${day.calories > goals.calories ? 'exceeded' : ''} ${!day.logged ? 'unlogged' : ''}`} style={{height: `${day.logged ? Math.max(4, day.calories / max * 190) : 4}px`}}/><small>{formatDate(day.key, {weekday: 'short'})}</small></div>)}</div>
+    </section>
+    <section className="card chart-card" style={{marginTop:'24px',padding:'24px'}}>
+      <div className="card-title"><h2 style={{display:'flex',alignItems:'center',gap:'8px'}}><Scale size={18}/> Body weight & calorie correlation</h2><span className="subtle-chip">PROGRESS</span></div>
+      <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginTop:'18px',flexWrap:'wrap',gap:'16px'}}>
+        <div>
+          <span style={{fontSize:'10px',color:'#96a486'}}>Latest recorded weight</span>
+          <strong style={{display:'block',fontSize:'28px',color:'#e4eadb',fontWeight:550,marginTop:'4px'}}>{latestWeight !== undefined ? `${latestWeight} kg` : '—'}</strong>
+          {weightDelta !== null && <span style={{fontSize:'10px',color:weightDelta <= 0 ? '#b6e379' : '#e0a98b',display:'inline-flex',alignItems:'center',gap:'4px',marginTop:'4px'}}>{weightDelta < 0 ? <TrendingDown size={13}/> : <TrendingUp size={13}/>}{weightDelta > 0 ? `+${weightDelta}` : weightDelta} kg vs earlier</span>}
+        </div>
+        <form onSubmit={handleSaveWeight} style={{display:'flex',gap:'8px',alignItems:'center'}}>
+          <input type="number" step="0.1" min="20" max="350" placeholder={todayRecord?.weight ? String(todayRecord.weight) : "Today's kg"} value={weightInput} onChange={e => setWeightInput(e.target.value)} style={{width:'110px',padding:'8px 10px',fontSize:'12px',background:'#161912',border:'1px solid #3c4632',borderRadius:'7px',color:'#e3eadb'}}/>
+          <button type="submit" className="primary-button" style={{padding:'8px 14px',fontSize:'11px'}}>{savedWeight ? <Check size={14}/> : null} {savedWeight ? 'Saved' : 'Log weight'}</button>
+        </form>
+      </div>
+      <p style={{fontSize:'10px',color:'#8f9e7f',marginTop:'16px',lineHeight:1.7}}>{averageCalories !== null ? `Your 7-day average intake is ${number(averageCalories)} kcal/day. Pair consistent weigh-ins with your daily diary to observe your energy balance over time.` : 'Log your meals and weight to correlate your daily calorie balance with weight changes.'}</p>
     </section>
   </>;
 }

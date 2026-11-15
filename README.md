@@ -56,9 +56,9 @@ The offline library contains **5,522 entries**: 5,439 USDA nutrition records, 20
 
 | Phase | Implemented | Remaining |
 | --- | --- | --- |
-| 1. PWA | Vite/React/TypeScript, manifest/icons, service worker, cached app shell, in-app install prompt | Physical Android/iOS installation tests |
-| 2. Local data | IndexedDB foodLibrary/dailyLogs, water, goals, validated imports, backups, nutrition snapshots, Open Food Facts barcode caching | Broader Indian recipe validation, micronutrients |
-| 3. Tracking UI | Dark responsive dashboard, bottom navigation, portions/weights, daily macros, water, weekly insights, custom foods | More accessibility and usability testing |
+| 1. PWA | Vite/React/TypeScript, manifest/icons, service worker, cached app shell, in-app install prompt, first-time onboarding modal | Physical Android/iOS installation tests |
+| 2. Local data | IndexedDB foodLibrary/dailyLogs, water, goals, streak calculation, body weight tracking, CSV & JSON export/backup, validated imports, nutrition snapshots, Open Food Facts barcode caching, micronutrients (fiber/sodium) | Broader Indian recipe validation |
+| 3. Tracking UI | Dark responsive dashboard, bottom navigation, streak & consistency widget, repeat yesterday's meal, recent foods tab, portions/weights, daily macros, water, weekly insights & calorie correlation, custom foods | More accessibility and usability testing |
 | 4. Snap | On-device single-dish model, mixed-meal segmentation/calibration, barcode scanner (UPC/EAN), low-confidence non-food guard, Idli/Parotta shortcuts | Weighed-meal mass regressor, more Indian trained classes |
 | 5. Deployment | Production build, Netlify configuration, versioned model asset filenames | GitHub/Netlify publishing and live device QA |
 
