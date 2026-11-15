@@ -1,5 +1,5 @@
 import {describe, expect, it} from 'vitest';
-import {confidentPrediction, formatScore, normalizePixels, rankPredictions, softmax, type ScannerConfig} from './scanner-math';
+import {confidentPrediction, formatScore, isLowConfidence, normalizePixels, rankPredictions, softmax, type ScannerConfig} from './scanner-math';
 import {matchingFoods, suggestedSearch} from './food-matching';
 import {regionalFoods} from './regional-foods';
 
@@ -28,6 +28,9 @@ describe('recognition scores', () => {
   it('rejects incompatible outputs and flags ambiguous suggestions', () => {
     expect(() => rankPredictions([1], [1,2,3], config, 'auto')).toThrow();
     expect(confidentPrediction([{label:'pizza',confidence:.51,cuisine:'global'},{label:'samosa',confidence:.48,cuisine:'global'}])).toBe(false);
+    expect(isLowConfidence([])).toBe(true);
+    expect(isLowConfidence([{label:'pizza',confidence:.22,cuisine:'global'}])).toBe(true);
+    expect(isLowConfidence([{label:'pizza',confidence:.65,cuisine:'global'}])).toBe(false);
     expect(formatScore(.9999)).toBe('99%+'); expect(formatScore(.0001)).toBe('<1%');
   });
 });

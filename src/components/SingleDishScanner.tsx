@@ -2,7 +2,7 @@ import {useEffect, useRef, useState} from 'react';
 import {useLiveQuery} from 'dexie-react-hooks';
 import {ArrowRight, Camera, Check, CircleHelp, Download, ImagePlus, LoaderCircle, ScanLine, Search, ShieldCheck, X} from 'lucide-react';
 import {classify, warmScanner, type Prediction, type ScanMode} from '../scanner';
-import {confidentPrediction, formatScore} from '../scanner-math';
+import {confidentPrediction, formatScore, isLowConfidence} from '../scanner-math';
 import {prepareScanner, scannerManifest, scannerReady, type DownloadProgress, type ScannerManifest} from '../scanner-assets';
 import {db} from '../db';
 import {displayLabel, foodIdsForLabel, matchingFoods, suggestedSearch} from '../food-matching';
@@ -85,7 +85,9 @@ export default function Scanner({onPick, notify}: {onPick: (query: string, food?
       <input ref={gallery} type="file" accept="image/*" hidden onChange={event => {const file = event.target.files?.[0]; if (file) selectPhoto(file); event.target.value = '';}}/>
       <div className="camera-actions"><button className="primary-button" disabled={!ready || locked} onClick={() => camera.current?.click()}><Camera size={18}/> Take a photo</button><button className="secondary-button" disabled={!ready || locked} onClick={() => gallery.current?.click()}><ImagePlus size={18}/> Choose photo</button></div>
       {message && <div className="notice scanner-notice" role="alert"><CircleHelp size={19}/><p>{message}</p></div>}
-      {predictions.length > 0 && <section className="scan-results" aria-live="polite"><div className="scan-results-heading"><div><h3>{confident ? 'Does this look right?' : 'A few possibilities to check'}</h3></div><span className="inference-time">{duration(inferenceMs)} · on device</span></div><p>Choose the dish, then confirm its recipe and portion.</p>{predictions.map((prediction, index) => {
+      {predictions.length > 0 && <section className="scan-results" aria-live="polite"><div className="scan-results-heading"><div><h3>{confident ? 'Does this look right?' : isLowConfidence(predictions) ? 'Low confidence suggestions' : 'A few possibilities to check'}</h3></div><span className="inference-time">{duration(inferenceMs)} · on device</span></div>
+      {isLowConfidence(predictions) && <div className="notice scanner-notice" role="alert"><CircleHelp size={18}/><p><strong>Uncertain prediction:</strong> This photo may be unclear, poorly lit, or not a recognized food dish. Check the suggestions below or search manually.</p></div>}
+      <p>Choose the dish, then confirm its recipe and portion.</p>{predictions.map((prediction, index) => {
         const matches = matchingFoods(prediction.label, foods);
         const minimumCalories = matches.length ? Math.min(...matches.map(food => food.calories / food.grams * 100)) : null;
         const maximumCalories = matches.length ? Math.max(...matches.map(food => food.calories / food.grams * 100)) : null;
@@ -93,6 +95,6 @@ export default function Scanner({onPick, notify}: {onPick: (query: string, food?
       })}<p className="field-hint">These are suggestions, not measurements. A photo cannot determine portion weight or exact calories.</p></section>}
       <button className="scanner-manual text-button" onClick={() => onPick('')}><Search size={16}/> Search or add a food manually</button>
     </section>
-    <aside className="scanner-info"><div className="card"><h2>How to scan</h2><ol><li>Snap one dish in good light</li><li>Review the food suggestion</li><li>Set your portion & save</li></ol><div className="model-status"><ShieldCheck size={15}/><span>No photo uploads.<br/>Works offline after setup.</span></div></div><div className="card coverage-card"><h3>Indian dishes included</h3><p>Biryani, dosa, dal, paneer, naan, chole bhature, pav bhaji, and more.</p><details><summary>See supported regional dishes</summary><p>Biryani · Chole bhature · Dabeli · Dal · Dhokla · Dosa · Jalebi · Kathi roll · Kofta · Naan · Pakora · Paneer · Pani puri · Pav bhaji · Vada pav</p><p>Idli and parotta are not supported by this model yet. Search your library for those dishes.</p></details></div></aside>
+    <aside className="scanner-info"><div className="card"><h2>How to scan</h2><ol><li>Snap one dish in good light</li><li>Review the food suggestion</li><li>Set your portion & save</li></ol><div className="model-status"><ShieldCheck size={15}/><span>No photo uploads.<br/>Works offline after setup.</span></div></div><div className="card coverage-card"><h3>Indian dishes included</h3><p>Biryani, dosa, dal, paneer, naan, chole bhature, pav bhaji, and more.</p><details><summary>See supported regional dishes</summary><p>Biryani · Chole bhature · Dabeli · Dal · Dhokla · Dosa · Jalebi · Kathi roll · Kofta · Naan · Pakora · Paneer · Pani puri · Pav bhaji · Vada pav</p><p>Idli and parotta are not supported by this model yet.</p><div style={{display:'flex',gap:'8px',marginTop:'8px',flexWrap:'wrap'}}><button type="button" className="secondary-button" style={{padding:'6px 12px',fontSize:'11px'}} onClick={()=>onPick('idli')}>🍚 Search Idli</button><button type="button" className="secondary-button" style={{padding:'6px 12px',fontSize:'11px'}} onClick={()=>onPick('parotta')}>🫓 Search Parotta</button></div></details></div></aside>
   </div>;
 }

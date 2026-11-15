@@ -28,6 +28,9 @@ export function rankPredictions(globalLogits: ArrayLike<number>, regionalLogits:
 export function confidentPrediction(predictions: Prediction[]): boolean {
   return !!predictions.length && predictions[0].confidence >= .5 && predictions[0].confidence - (predictions[1]?.confidence ?? 0) >= .12;
 }
+export function isLowConfidence(predictions: Prediction[]): boolean {
+  return !predictions.length || predictions[0].confidence < .28;
+}
 export function formatScore(value: number): string {
   return value >= .995 ? '99%+' : value < .005 ? '<1%' : `${Math.round(value * 100)}%`;
 }

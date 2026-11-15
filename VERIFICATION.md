@@ -1,5 +1,13 @@
 # Verification — October 25, 2026
 
+## November 15: Barcode scanner, non-food rejection guard, PWA install prompt & shortcuts
+
+- **61 tests in 14 suites pass**, plus production TypeScript/Vite/PWA build (15 shell entries, 3280.22 KiB).
+- **Packaged Food Barcode Scanner:** Added `BarcodeScanner.tsx` supporting camera detection via `BarcodeDetector` (UPC-A, EAN-13, EAN-8, Code-128), barcode photo uploads, and manual numeric entry. Scans search the local IndexedDB database first; when online, queries Open Food Facts API, normalizes nutrition, writes atomically to `foodLibrary` for permanent offline access, and routes to portion confirmation. If unlisted or offline, provides an instant custom food creation shortcut with barcode metadata.
+- **Out-of-Distribution / Low-Confidence Guard:** Added `isLowConfidence` in `scanner-math.ts` (<28% top confidence) and an alert banner in `SingleDishScanner.tsx` warning when a photo is likely non-food, blurry, or unrecognized.
+- **Unsupported Dish Shortcuts:** Added one-tap shortcut buttons for Idli and Parotta directly in the single-dish scanner to quickly log existing library recipes.
+- **PWA Installation Flow:** Added `beforeinstallprompt` and `appinstalled` listeners in `App.tsx` with dedicated "Install SnapBite" buttons in the sidebar and top bar.
+
 ## October 26: detection cleanup and measured-meal evaluation
 
 - **58 tests in 13 suites pass**, plus production TypeScript/Vite/PWA build (15 shell entries, 3270.50 KiB). New checks cover parent/child selection, frame-background rejection, conservative speckle cleanup, frozen prediction/reference estimates, missed-food coverage, negative examples, training/session leakage, duplicate-photo exclusion, validation and atomic import. A database-version-three fixture upgrades to version four while preserving an existing meal and water record.
